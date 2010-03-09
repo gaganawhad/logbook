@@ -1,0 +1,13 @@
+<p>
+  <b>Title:</b>
+  <%=h @github_project.title %>
+</p>
+
+<p>
+  <b>Github name:</b>
+  <%=h @github_project.github_name %>
+</p>
+
+
+<%= link_to 'Edit', edit_github_project_path(@github_project) %> |
+<%= link_to 'Back', github_projects_path %>

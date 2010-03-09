@@ -1,0 +1,48 @@
+<h1>Editing log_book_entry</h1>
+
+<% form_for(@log_book_entry) do |f| %>
+  <%= f.error_messages %>
+
+  <p>
+    <%= f.label :title %><br />
+    <%= f.text_field :title %>
+  </p>
+  <p>
+    <%= f.label :description %><br />
+    <%= f.text_area :description %>
+  </p>
+  <p>
+    <%= f.label :solution %><br />
+    <%= f.text_area :solution %>
+  </p>
+  <p>
+    <%= f.label :user_id %><br />
+    <%= f.select(:user_id, @users)%>
+  </p>
+  <p>
+    <%= f.label :sha_of_problem %><br />
+    <%= f.text_field :sha_of_problem %>
+  </p>
+  <p>
+    <%= f.label :sha_of_solution %><br />
+    <%= f.text_field :sha_of_solution %>
+  </p>
+  <p>
+    <%= f.label :github_project_id %><br />
+    <%= f.select(:github_project_id, @projects)%>
+  </p>
+  <p>
+    <%= f.label :created_at %><br />
+    <%= f.datetime_select :created_at %>
+  </p>
+  <p>
+    <%= f.label :updated_at %><br />
+    <%= f.datetime_select :updated_at %>
+  </p>
+  <p>
+    <%= f.submit 'Update' %>
+  </p>
+<% end %>
+
+<%= link_to 'Show', @log_book_entry %> |
+<%= link_to 'Back', log_book_entries_path %>

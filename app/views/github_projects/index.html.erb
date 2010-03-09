@@ -1,0 +1,22 @@
+<h1>Listing github_projects</h1>
+
+<table>
+  <tr>
+    <th>Title</th>
+    <th>Github name</th>
+  </tr>
+
+<% @github_projects.each do |github_project| %>
+  <tr>
+    <td><%=h github_project.title %></td>
+    <td><%=h github_project.github_name %></td>
+    <td><%= link_to 'Show', github_project %></td>
+    <td><%= link_to 'Edit', edit_github_project_path(github_project) %></td>
+    <td><%= link_to 'Destroy', github_project, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New github_project', new_github_project_path %>

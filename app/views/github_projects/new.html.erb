@@ -1,0 +1,19 @@
+<h1>New github_project</h1>
+
+<% form_for(@github_project) do |f| %>
+  <%= f.error_messages %>
+
+  <p>
+    <%= f.label :title %><br />
+    <%= f.text_field :title %>
+  </p>
+  <p>
+    <%= f.label :github_name %><br />
+    <%= f.text_field :github_name %>
+  </p>
+  <p>
+    <%= f.submit 'Create' %>
+  </p>
+<% end %>
+
+<%= link_to 'Back', github_projects_path %>

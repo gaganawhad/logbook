@@ -1,0 +1,48 @@
+<p>
+  <b>Title:</b>
+  <%=h @log_book_entry.title %>
+</p>
+
+<p>
+  <b>Description:</b>
+  <%=h @log_book_entry.description %>
+</p>
+
+<p>
+  <b>Solution:</b>
+  <%=h @log_book_entry.solution %>
+</p>
+
+<p>
+  <b>User:</b>
+  <%=h @log_book_entry.user_id %>
+</p>
+
+<p>
+  <b>Sha of problem:</b>
+  <%=h @log_book_entry.sha_of_problem %>
+</p>
+
+<p>
+  <b>Sha of solution:</b>
+  <%=h @log_book_entry.sha_of_solution %>
+</p>
+
+<p>
+  <b>Github project:</b>
+  <%=h @log_book_entry.github_project_id %>
+</p>
+
+<p>
+  <b>Created at:</b>
+  <%=h @log_book_entry.created_at %>
+</p>
+
+<p>
+  <b>Updated at:</b>
+  <%=h @log_book_entry.updated_at %>
+</p>
+
+
+<%= link_to 'Edit', edit_log_book_entry_path(@log_book_entry) %> |
+<%= link_to 'Back', log_book_entries_path %>
