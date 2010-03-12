@@ -3,7 +3,6 @@ class LogBookEntriesController < ApplicationController
   # get /log_book_entries.xml
   def index
       @log_book_entries = LogBookEntry.find(:all, :joins => [:user, :github_project], :order => params[:order]) 
-      #@log_book_entries = LogBookEntry.find(:all, :order => params[:order])
     
     respond_to do |format|
       format.html # index.html.erb
@@ -26,7 +25,7 @@ class LogBookEntriesController < ApplicationController
   # GET /log_book_entries/new.xml
   def new
     @log_book_entry = LogBookEntry.new
-    @projects = GithubProject.find(:all, :order => "title").collect {|u| [u.title, u.id]}
+    @projects = GithubProject.find(:all, :order => "title").collect {|p| [p.title, p.id]}
     @users = User.find(:all, :order => "name").collect {|u| [u.name, u.id]}
 
     respond_to do |format|# gags: This is where control goes to the view. it does work implicty, but it is explicity specified when we want format also in xml.  
@@ -40,7 +39,7 @@ class LogBookEntriesController < ApplicationController
   # GET /log_book_entries/1/edit
   def edit
     @log_book_entry = LogBookEntry.find(params[:id])
-    @projects = GithubProject.find(:all, :order => "title").collect {|u| [u.title, u.id]} # Gags: creates object @users again which is used in view
+    @projects = GithubProject.find(:all, :order => "title").collect {|p| [p.title, p.id]} # Gags: creates object @users again which is used in view
     @users = User.find(:all, :order => "name").collect {|u| [u.name, u.id]} # Gags: creates object @projects again
   end
 
@@ -55,7 +54,7 @@ class LogBookEntriesController < ApplicationController
         format.html { redirect_to(@log_book_entry) }
         format.xml  { render :xml => @log_book_entry, :status => :created, :location => @log_book_entry }
       else # incase of an error in saving
-        @projects = GithubProject.find(:all, :order => "title").collect {|u| [u.title, u.id]} # Gags: creates object @users again which is used in view
+        @projects = GithubProject.find(:all, :order => "title").collect {|p| [p.title, p.id]} # Gags: creates object @users again which is used in view
         @users = User.find(:all, :order => "name").collect {|u| [u.name, u.id]} # Gags: creates object @projects again
         format.html { render :action => "new" } # Gags: Render only renders views. it does not call the action new again. 
         format.xml  { render :xml => @log_book_entry.errors, :status => :unprocessable_entity }
@@ -74,7 +73,7 @@ class LogBookEntriesController < ApplicationController
         format.html { redirect_to(@log_book_entry) }
         format.xml  { head :ok }
       else
-        @projects = GithubProject.find(:all, :order => "title").collect {|u| [u.title, u.id]} # Gags: creates object @users again which is used in view @users = User.find(:all, :order => "name").collect {|u| [u.name, u.id]} # Gags: creates object @projects again
+        @projects = GithubProject.find(:all, :order => "title").collect {|p| [p.title, p.id]} # Gags: creates object @users again which is used in view @users = User.find(:all, :order => "name").collect {|u| [u.name, u.id]} # Gags: creates object @projects again
         @users = User.find(:all, :order => "name").collect {|u| [u.name, u.id]} # Gags: creates object @projects again
         format.html { render :action => "edit" }
         format.xml  { render :xml => @log_book_entry.errors, :status => :unprocessable_entity }
