@@ -32,6 +32,10 @@
     <%= f.select(:github_project_id, @projects,  { :include_blank => true}) %>
   </p>
   <p>
+    <%= f.label :tag_list %>
+    <%= f.text_field :tag_list, :size => 80 %>
+  </p>
+  <p>
     <%= f.label :created_at %><br />
     <%= f.datetime_select :created_at %>
   </p>

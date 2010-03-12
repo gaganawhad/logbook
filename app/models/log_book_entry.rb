@@ -1,4 +1,5 @@
 class LogBookEntry < ActiveRecord::Base
+  acts_as_taggable
   belongs_to :github_project
   belongs_to :user
   validates_presence_of :title, :description, :solution, :user_id, :github_project_id

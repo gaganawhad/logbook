@@ -9,6 +9,7 @@
     <th><%= link_to 'SHA of Problem', log_book_entries_path(:order => 'sha_of_problem') %> </th>
     <th><%= link_to 'SHA of Solution', log_book_entries_path(:order => 'sha_of_solution') %> </th>
     <th><%= link_to 'Github Project', log_book_entries_path(:order => 'github_projects.title') %> </th>
+    <th> Tags </th>
     <th><%= link_to 'Created At', log_book_entries_path(:order => 'log_book_entries.updated_at') %> </th>
     <th><%= link_to 'Updated At', log_book_entries_path(:order => 'log_book_entries.created_at') %> </th>
 
@@ -22,6 +23,7 @@
     <td><%=h log_book_entry.sha_of_problem %></td>
     <td><%=h log_book_entry.sha_of_solution %></td>
     <td><%=h log_book_entry.github_project.title %></td>
+    <td><%=h log_book_entry.tag_list.each {|tag| puts tag} %></td>
     <td><%=h log_book_entry.created_at %></td>
     <td><%=h log_book_entry.updated_at %></td>
     <td><%= link_to 'Show', log_book_entry %></td>
