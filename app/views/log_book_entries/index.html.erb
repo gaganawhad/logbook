@@ -20,15 +20,15 @@
     <td><%=h log_book_entry.description %></td>
     <td><%=h log_book_entry.solution %></td>
     <td><%=h log_book_entry.user.name %></td>
-    <td><%=h log_book_entry.sha_of_problem %></td>
-    <td><%=h log_book_entry.sha_of_solution %></td>
-    <td><%=h log_book_entry.github_project.title %></td>
+    <td><%= link_to "click here", "http://github.com/desiringgod/" + log_book_entry.github_project.title + "/commit/" + log_book_entry.sha_of_problem %></td>
+    <td><%= link_to "click here", "http://github.com/desiringgod/" + log_book_entry.github_project.title + "/commit/" + log_book_entry.sha_of_solution %></td>
+    <td><%= link_to log_book_entry.github_project.title, "http://github.com/desiringgod/" + log_book_entry.github_project.title %></td>
     <td><% log_book_entry.tag_list.sort!.each do |tag| %>
         <%= link_to tag, :action => "label", :controller => "search", :tag=>tag%>
         <% end %>
     </td>
-    <td><%=h log_book_entry.created_at %></td>
-    <td><%=h log_book_entry.updated_at %></td>
+    <td><%=h log_book_entry.created_at.to_s(:long) %></td>
+    <td><%=h log_book_entry.updated_at.to_s(:long) %></td>
     <td><%= link_to 'Show', log_book_entry %></td>
     <td><%= link_to 'Edit', edit_log_book_entry_path(log_book_entry) %></td>
     <td><%= link_to 'Destroy', log_book_entry, :confirm => 'Are you sure?', :method => :delete %></td>

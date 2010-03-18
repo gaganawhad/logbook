@@ -15,27 +15,29 @@
 
 <p>
   <b>User:</b>
-  <%=h @log_book_entry.user_id %>
+  <%=h @log_book_entry.user.name %>
 </p>
 
 <p>
   <b>Sha of problem:</b>
-  <%=h @log_book_entry.sha_of_problem %>
+  <%= link_to "click here", "http://github.com/desiringgod/" + @log_book_entry.github_project.title + "/commit/" + @log_book_entry.sha_of_problem %>
 </p>
 
 <p>
   <b>Sha of solution:</b>
-  <%=h @log_book_entry.sha_of_solution %>
+  <%= link_to "click here", "http://github.com/desiringgod/" + @log_book_entry.github_project.title + "/commit/" + @log_book_entry.sha_of_solution %>
 </p>
 
 <p>
   <b>Github project:</b>
-  <%=h @log_book_entry.github_project_id %>
+  <%= link_to @log_book_entry.github_project.title, "http://github.com/desiringgod/" + @log_book_entry.github_project.title %>
 </p>
 
 <p>
   <b>Tags</b>
-  <%=h @log_book_entry.tag_list.each {|tag| puts tag} %>
+  <% @log_book_entry.tag_list.sort!.each do |tag| %>
+  <%= link_to tag, :action => "label", :controller => "search", :tag=>tag%>
+  <% end %>
 </p>
 
 <p>
@@ -51,3 +53,5 @@
 
 <%= link_to 'Edit', edit_log_book_entry_path(@log_book_entry) %> |
 <%= link_to 'Back', log_book_entries_path %>
+
+
