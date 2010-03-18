@@ -29,8 +29,20 @@
         <%= link_to tag, :action => "label", :tag=>tag%>
         <% end %>
     </td>
-    <td><%=h matched_entry.created_at %></td>
-    <td><%=h matched_entry.updated_at %></td>
+    <td>
+      <% if matched_entry.created_at > 7.days.ago %>
+      <%=h matched_entry.created_at.strftime("%A, %H:%M ") %>
+      <% else %>
+      <%=h matched_entry.created_at.to_s(:long) %> 
+      <% end %>
+    </td>
+    <td>
+      <% if matched_entry.updated_at > 7.days.ago %>
+      <%=h matched_entry.updated_at.strftime("%A, %H:%M ") %> 
+      <% else %>
+      <%=h matched_entry.updated_at.to_s(:long) %> 
+      <% end %>
+    </td>
     <td><%= link_to 'Show', matched_entry %></td>
     <td><%= link_to 'Edit', edit_log_book_entry_path(matched_entry) %></td>
     <td><%= link_to 'Destroy', matched_entry, :confirm => 'Are you sure?', :method => :delete %></td>

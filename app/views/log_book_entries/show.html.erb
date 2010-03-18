@@ -42,12 +42,20 @@
 
 <p>
   <b>Created at:</b>
-  <%=h @log_book_entry.created_at %>
+      <% if @log_book_entry.created_at > 7.days.ago %>
+      <%=h @log_book_entry.created_at.strftime("%A, %H:%M ") %>
+      <% else %>
+      <%=h @log_book_entry.created_at.to_s(:long) %> 
+      <% end %>
 </p>
 
 <p>
   <b>Updated at:</b>
-  <%=h @log_book_entry.updated_at %>
+      <% if @log_book_entry.updated_at > 7.days.ago %>
+      <%=h @log_book_entry.updated_at.strftime("%A, %H:%M ") %> 
+      <% else %>
+      <%=h @log_book_entry.updated_at.to_s(:long) %> 
+      <% end %>
 </p>
 
 

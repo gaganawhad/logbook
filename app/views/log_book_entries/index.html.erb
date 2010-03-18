@@ -24,11 +24,23 @@
     <td><%= link_to "click here", "http://github.com/desiringgod/" + log_book_entry.github_project.title + "/commit/" + log_book_entry.sha_of_solution %></td>
     <td><%= link_to log_book_entry.github_project.title, "http://github.com/desiringgod/" + log_book_entry.github_project.title %></td>
     <td><% log_book_entry.tag_list.sort!.each do |tag| %>
-        <%= link_to tag, :action => "label", :controller => "search", :tag=>tag%>
+        <%= link_to tag, :action => "label", :controller => "search", :tag=>tag %>
         <% end %>
     </td>
-    <td><%=h log_book_entry.created_at.to_s(:long) %></td>
-    <td><%=h log_book_entry.updated_at.to_s(:long) %></td>
+    <td>
+      <% if log_book_entry.created_at > 7.days.ago %>
+      <%=h log_book_entry.created_at.strftime("%A, %H:%M ") %>
+      <% else %>
+      <%=h log_book_entry.created_at.to_s(:long) %> 
+      <% end %>
+    </td>
+    <td>
+      <% if log_book_entry.updated_at > 7.days.ago %>
+      <%=h log_book_entry.updated_at.strftime("%A, %H:%M ") %> 
+      <% else %>
+      <%=h log_book_entry.updated_at.to_s(:long) %> 
+      <% end %>
+    </td>
     <td><%= link_to 'Show', log_book_entry %></td>
     <td><%= link_to 'Edit', edit_log_book_entry_path(log_book_entry) %></td>
     <td><%= link_to 'Destroy', log_book_entry, :confirm => 'Are you sure?', :method => :delete %></td>
