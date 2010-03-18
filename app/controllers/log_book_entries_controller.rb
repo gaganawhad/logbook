@@ -25,8 +25,8 @@ class LogBookEntriesController < ApplicationController
   # GET /log_book_entries/new.xml
   def new
     @log_book_entry = LogBookEntry.new
-    @projects = GithubProject.find(:all, :order => "title").collect {|p| [p.title, p.id]}
-    @users = User.find(:all, :order => "name").collect {|u| [u.name, u.id]}
+    @projects = GithubProject.find(:all, :order => "title").collect {|p| [p.title, p.id]} # the way they are aligned ie title first and id later, makes select show title in the view and not id. 
+    @users = User.find(:all, :order => "name").collect {|u| [u.name, u.id]} # 
 
     respond_to do |format|# gags: This is where control goes to the view. it does work implicty, but it is explicity specified when we want format also in xml.  
       format.html # new.html.erb

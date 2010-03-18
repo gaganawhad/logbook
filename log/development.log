@@ -14822,3 +14822,779 @@ Rendering search/label
   [4;36;1mGithubProject Load (0.2ms)[0m   [0;1mSELECT * FROM "github_projects" WHERE ("github_projects"."id" = 2) [0m
   [4;35;1mTag Load (0.3ms)[0m   [0mSELECT "tags".* FROM "tags" INNER JOIN "taggings" ON "tags".id = "taggings".tag_id WHERE (("taggings".taggable_id = 8) AND ("taggings".taggable_type = 'LogBookEntry')) [0m
 Completed in 37ms (View: 18, DB: 4) | 200 OK [http://localhost/search/label?order=log_book_entries.created_at&tag=tag9]
+
+
+Processing SearchController#label (for 127.0.0.1 at 2010-03-12 16:39:59) [GET]
+  Parameters: {"order"=>"log_book_entries.title", "tag"=>"tag9"}
+  [4;36;1mLogBookEntry Load (1.4ms)[0m   [0;1mSELECT DISTINCT log_book_entries.* FROM "log_book_entries" INNER JOIN taggings log_book_entries_taggings ON log_book_entries_taggings.taggable_id = log_book_entries.id AND log_book_entries_taggings.taggable_type = 'LogBookEntry' INNER JOIN tags log_book_entries_tags ON log_book_entries_tags.id = log_book_entries_taggings.tag_id WHERE ((log_book_entries_tags.name LIKE 'tag9')) [0m
+  [4;35;1mLogBookEntry Load (1.6ms)[0m   [0mSELECT "log_book_entries".* FROM "log_book_entries" INNER JOIN "users" ON "users".id = "log_book_entries".user_id INNER JOIN "github_projects" ON "github_projects".id = "log_book_entries".github_project_id WHERE ("log_book_entries"."id" IN (6,7,8)) ORDER BY log_book_entries.title[0m
+Rendering search/label
+  [4;36;1mUser Load (0.2ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 6) [0m
+  [4;35;1mGithubProject Load (0.2ms)[0m   [0mSELECT * FROM "github_projects" WHERE ("github_projects"."id" = 3) [0m
+  [4;36;1mTag Load (0.3ms)[0m   [0;1mSELECT "tags".* FROM "tags" INNER JOIN "taggings" ON "tags".id = "taggings".tag_id WHERE (("taggings".taggable_id = 6) AND ("taggings".taggable_type = 'LogBookEntry')) [0m
+  [4;35;1mUser Load (0.2ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 7) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "github_projects" WHERE ("github_projects"."id" = 3) [0m
+  [4;35;1mTag Load (0.3ms)[0m   [0mSELECT "tags".* FROM "tags" INNER JOIN "taggings" ON "tags".id = "taggings".tag_id WHERE (("taggings".taggable_id = 7) AND ("taggings".taggable_type = 'LogBookEntry')) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 7) [0m
+  [4;35;1mGithubProject Load (0.2ms)[0m   [0mSELECT * FROM "github_projects" WHERE ("github_projects"."id" = 2) [0m
+  [4;36;1mTag Load (0.2ms)[0m   [0;1mSELECT "tags".* FROM "tags" INNER JOIN "taggings" ON "tags".id = "taggings".tag_id WHERE (("taggings".taggable_id = 8) AND ("taggings".taggable_type = 'LogBookEntry')) [0m
+Completed in 34ms (View: 16, DB: 5) | 200 OK [http://localhost/search/label?order=log_book_entries.title&tag=tag9]
+
+
+Processing SearchController#label (for 127.0.0.1 at 2010-03-12 16:40:01) [GET]
+  Parameters: {"order"=>"description", "tag"=>"tag9"}
+  [4;35;1mLogBookEntry Load (1.3ms)[0m   [0mSELECT DISTINCT log_book_entries.* FROM "log_book_entries" INNER JOIN taggings log_book_entries_taggings ON log_book_entries_taggings.taggable_id = log_book_entries.id AND log_book_entries_taggings.taggable_type = 'LogBookEntry' INNER JOIN tags log_book_entries_tags ON log_book_entries_tags.id = log_book_entries_taggings.tag_id WHERE ((log_book_entries_tags.name LIKE 'tag9')) [0m
+  [4;36;1mLogBookEntry Load (1.2ms)[0m   [0;1mSELECT "log_book_entries".* FROM "log_book_entries" INNER JOIN "users" ON "users".id = "log_book_entries".user_id INNER JOIN "github_projects" ON "github_projects".id = "log_book_entries".github_project_id WHERE ("log_book_entries"."id" IN (6,7,8)) ORDER BY description[0m
+Rendering search/label
+  [4;35;1mUser Load (0.2ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 6) [0m
+  [4;36;1mGithubProject Load (0.2ms)[0m   [0;1mSELECT * FROM "github_projects" WHERE ("github_projects"."id" = 3) [0m
+  [4;35;1mTag Load (0.3ms)[0m   [0mSELECT "tags".* FROM "tags" INNER JOIN "taggings" ON "tags".id = "taggings".tag_id WHERE (("taggings".taggable_id = 6) AND ("taggings".taggable_type = 'LogBookEntry')) [0m
+  [4;36;1mUser Load (0.2ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 7) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "github_projects" WHERE ("github_projects"."id" = 3) [0m
+  [4;36;1mTag Load (0.3ms)[0m   [0;1mSELECT "tags".* FROM "tags" INNER JOIN "taggings" ON "tags".id = "taggings".tag_id WHERE (("taggings".taggable_id = 7) AND ("taggings".taggable_type = 'LogBookEntry')) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 7) [0m
+  [4;36;1mGithubProject Load (0.2ms)[0m   [0;1mSELECT * FROM "github_projects" WHERE ("github_projects"."id" = 2) [0m
+  [4;35;1mTag Load (0.2ms)[0m   [0mSELECT "tags".* FROM "tags" INNER JOIN "taggings" ON "tags".id = "taggings".tag_id WHERE (("taggings".taggable_id = 8) AND ("taggings".taggable_type = 'LogBookEntry')) [0m
+Completed in 33ms (View: 17, DB: 4) | 200 OK [http://localhost/search/label?order=description&tag=tag9]
+
+
+Processing SearchController#label (for 127.0.0.1 at 2010-03-12 16:40:02) [GET]
+  Parameters: {"order"=>"users.name", "tag"=>"tag9"}
+  [4;36;1mLogBookEntry Load (1.3ms)[0m   [0;1mSELECT DISTINCT log_book_entries.* FROM "log_book_entries" INNER JOIN taggings log_book_entries_taggings ON log_book_entries_taggings.taggable_id = log_book_entries.id AND log_book_entries_taggings.taggable_type = 'LogBookEntry' INNER JOIN tags log_book_entries_tags ON log_book_entries_tags.id = log_book_entries_taggings.tag_id WHERE ((log_book_entries_tags.name LIKE 'tag9')) [0m
+  [4;35;1mLogBookEntry Load (1.2ms)[0m   [0mSELECT "log_book_entries".* FROM "log_book_entries" INNER JOIN "users" ON "users".id = "log_book_entries".user_id INNER JOIN "github_projects" ON "github_projects".id = "log_book_entries".github_project_id WHERE ("log_book_entries"."id" IN (6,7,8)) ORDER BY users.name[0m
+Rendering search/label
+  [4;36;1mUser Load (0.2ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 6) [0m
+  [4;35;1mGithubProject Load (0.2ms)[0m   [0mSELECT * FROM "github_projects" WHERE ("github_projects"."id" = 3) [0m
+  [4;36;1mTag Load (0.3ms)[0m   [0;1mSELECT "tags".* FROM "tags" INNER JOIN "taggings" ON "tags".id = "taggings".tag_id WHERE (("taggings".taggable_id = 6) AND ("taggings".taggable_type = 'LogBookEntry')) [0m
+  [4;35;1mUser Load (0.2ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 7) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "github_projects" WHERE ("github_projects"."id" = 3) [0m
+  [4;35;1mTag Load (0.3ms)[0m   [0mSELECT "tags".* FROM "tags" INNER JOIN "taggings" ON "tags".id = "taggings".tag_id WHERE (("taggings".taggable_id = 7) AND ("taggings".taggable_type = 'LogBookEntry')) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 7) [0m
+  [4;35;1mGithubProject Load (0.2ms)[0m   [0mSELECT * FROM "github_projects" WHERE ("github_projects"."id" = 2) [0m
+  [4;36;1mTag Load (0.2ms)[0m   [0;1mSELECT "tags".* FROM "tags" INNER JOIN "taggings" ON "tags".id = "taggings".tag_id WHERE (("taggings".taggable_id = 8) AND ("taggings".taggable_type = 'LogBookEntry')) [0m
+Completed in 33ms (View: 17, DB: 4) | 200 OK [http://localhost/search/label?order=users.name&tag=tag9]
+
+
+Processing SearchController#label (for 127.0.0.1 at 2010-03-12 16:40:03) [GET]
+  Parameters: {"order"=>"sha_of_problem", "tag"=>"tag9"}
+  [4;35;1mLogBookEntry Load (1.8ms)[0m   [0mSELECT DISTINCT log_book_entries.* FROM "log_book_entries" INNER JOIN taggings log_book_entries_taggings ON log_book_entries_taggings.taggable_id = log_book_entries.id AND log_book_entries_taggings.taggable_type = 'LogBookEntry' INNER JOIN tags log_book_entries_tags ON log_book_entries_tags.id = log_book_entries_taggings.tag_id WHERE ((log_book_entries_tags.name LIKE 'tag9')) [0m
+  [4;36;1mLogBookEntry Load (1.4ms)[0m   [0;1mSELECT "log_book_entries".* FROM "log_book_entries" INNER JOIN "users" ON "users".id = "log_book_entries".user_id INNER JOIN "github_projects" ON "github_projects".id = "log_book_entries".github_project_id WHERE ("log_book_entries"."id" IN (6,7,8)) ORDER BY sha_of_problem[0m
+Rendering search/label
+  [4;35;1mUser Load (0.2ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 7) [0m
+  [4;36;1mGithubProject Load (0.3ms)[0m   [0;1mSELECT * FROM "github_projects" WHERE ("github_projects"."id" = 3) [0m
+  [4;35;1mTag Load (0.4ms)[0m   [0mSELECT "tags".* FROM "tags" INNER JOIN "taggings" ON "tags".id = "taggings".tag_id WHERE (("taggings".taggable_id = 7) AND ("taggings".taggable_type = 'LogBookEntry')) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 7) [0m
+  [4;35;1mGithubProject Load (0.2ms)[0m   [0mSELECT * FROM "github_projects" WHERE ("github_projects"."id" = 2) [0m
+  [4;36;1mTag Load (0.3ms)[0m   [0;1mSELECT "tags".* FROM "tags" INNER JOIN "taggings" ON "tags".id = "taggings".tag_id WHERE (("taggings".taggable_id = 8) AND ("taggings".taggable_type = 'LogBookEntry')) [0m
+  [4;35;1mUser Load (0.2ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 6) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "github_projects" WHERE ("github_projects"."id" = 3) [0m
+  [4;35;1mTag Load (0.3ms)[0m   [0mSELECT "tags".* FROM "tags" INNER JOIN "taggings" ON "tags".id = "taggings".tag_id WHERE (("taggings".taggable_id = 6) AND ("taggings".taggable_type = 'LogBookEntry')) [0m
+Completed in 83ms (View: 61, DB: 5) | 200 OK [http://localhost/search/label?order=sha_of_problem&tag=tag9]
+
+
+Processing SearchController#label (for 127.0.0.1 at 2010-03-12 16:40:04) [GET]
+  Parameters: {"order"=>"sha_of_solution", "tag"=>"tag9"}
+  [4;36;1mLogBookEntry Load (1.6ms)[0m   [0;1mSELECT DISTINCT log_book_entries.* FROM "log_book_entries" INNER JOIN taggings log_book_entries_taggings ON log_book_entries_taggings.taggable_id = log_book_entries.id AND log_book_entries_taggings.taggable_type = 'LogBookEntry' INNER JOIN tags log_book_entries_tags ON log_book_entries_tags.id = log_book_entries_taggings.tag_id WHERE ((log_book_entries_tags.name LIKE 'tag9')) [0m
+  [4;35;1mLogBookEntry Load (1.5ms)[0m   [0mSELECT "log_book_entries".* FROM "log_book_entries" INNER JOIN "users" ON "users".id = "log_book_entries".user_id INNER JOIN "github_projects" ON "github_projects".id = "log_book_entries".github_project_id WHERE ("log_book_entries"."id" IN (6,7,8)) ORDER BY sha_of_solution[0m
+Rendering search/label
+  [4;36;1mUser Load (0.2ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 7) [0m
+  [4;35;1mGithubProject Load (0.2ms)[0m   [0mSELECT * FROM "github_projects" WHERE ("github_projects"."id" = 3) [0m
+  [4;36;1mTag Load (0.3ms)[0m   [0;1mSELECT "tags".* FROM "tags" INNER JOIN "taggings" ON "tags".id = "taggings".tag_id WHERE (("taggings".taggable_id = 7) AND ("taggings".taggable_type = 'LogBookEntry')) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 7) [0m
+  [4;36;1mGithubProject Load (0.2ms)[0m   [0;1mSELECT * FROM "github_projects" WHERE ("github_projects"."id" = 2) [0m
+  [4;35;1mTag Load (0.3ms)[0m   [0mSELECT "tags".* FROM "tags" INNER JOIN "taggings" ON "tags".id = "taggings".tag_id WHERE (("taggings".taggable_id = 8) AND ("taggings".taggable_type = 'LogBookEntry')) [0m
+  [4;36;1mUser Load (0.2ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 6) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "github_projects" WHERE ("github_projects"."id" = 3) [0m
+  [4;36;1mTag Load (0.3ms)[0m   [0;1mSELECT "tags".* FROM "tags" INNER JOIN "taggings" ON "tags".id = "taggings".tag_id WHERE (("taggings".taggable_id = 6) AND ("taggings".taggable_type = 'LogBookEntry')) [0m
+Completed in 37ms (View: 17, DB: 5) | 200 OK [http://localhost/search/label?order=sha_of_solution&tag=tag9]
+
+
+Processing SearchController#label (for 127.0.0.1 at 2010-03-12 16:40:05) [GET]
+  Parameters: {"order"=>"github_projects.title", "tag"=>"tag9"}
+  [4;35;1mLogBookEntry Load (1.5ms)[0m   [0mSELECT DISTINCT log_book_entries.* FROM "log_book_entries" INNER JOIN taggings log_book_entries_taggings ON log_book_entries_taggings.taggable_id = log_book_entries.id AND log_book_entries_taggings.taggable_type = 'LogBookEntry' INNER JOIN tags log_book_entries_tags ON log_book_entries_tags.id = log_book_entries_taggings.tag_id WHERE ((log_book_entries_tags.name LIKE 'tag9')) [0m
+  [4;36;1mLogBookEntry Load (1.2ms)[0m   [0;1mSELECT "log_book_entries".* FROM "log_book_entries" INNER JOIN "users" ON "users".id = "log_book_entries".user_id INNER JOIN "github_projects" ON "github_projects".id = "log_book_entries".github_project_id WHERE ("log_book_entries"."id" IN (6,7,8)) ORDER BY github_projects.title[0m
+Rendering search/label
+  [4;35;1mUser Load (0.2ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 6) [0m
+  [4;36;1mGithubProject Load (0.2ms)[0m   [0;1mSELECT * FROM "github_projects" WHERE ("github_projects"."id" = 3) [0m
+  [4;35;1mTag Load (0.3ms)[0m   [0mSELECT "tags".* FROM "tags" INNER JOIN "taggings" ON "tags".id = "taggings".tag_id WHERE (("taggings".taggable_id = 6) AND ("taggings".taggable_type = 'LogBookEntry')) [0m
+  [4;36;1mUser Load (0.2ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 7) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "github_projects" WHERE ("github_projects"."id" = 3) [0m
+  [4;36;1mTag Load (0.4ms)[0m   [0;1mSELECT "tags".* FROM "tags" INNER JOIN "taggings" ON "tags".id = "taggings".tag_id WHERE (("taggings".taggable_id = 7) AND ("taggings".taggable_type = 'LogBookEntry')) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 7) [0m
+  [4;36;1mGithubProject Load (0.2ms)[0m   [0;1mSELECT * FROM "github_projects" WHERE ("github_projects"."id" = 2) [0m
+  [4;35;1mTag Load (0.3ms)[0m   [0mSELECT "tags".* FROM "tags" INNER JOIN "taggings" ON "tags".id = "taggings".tag_id WHERE (("taggings".taggable_id = 8) AND ("taggings".taggable_type = 'LogBookEntry')) [0m
+Completed in 37ms (View: 17, DB: 4) | 200 OK [http://localhost/search/label?order=github_projects.title&tag=tag9]
+
+
+Processing SearchController#label (for 127.0.0.1 at 2010-03-12 16:40:07) [GET]
+  Parameters: {"order"=>"log_book_entries.updated_at", "tag"=>"tag9"}
+  [4;36;1mLogBookEntry Load (1.3ms)[0m   [0;1mSELECT DISTINCT log_book_entries.* FROM "log_book_entries" INNER JOIN taggings log_book_entries_taggings ON log_book_entries_taggings.taggable_id = log_book_entries.id AND log_book_entries_taggings.taggable_type = 'LogBookEntry' INNER JOIN tags log_book_entries_tags ON log_book_entries_tags.id = log_book_entries_taggings.tag_id WHERE ((log_book_entries_tags.name LIKE 'tag9')) [0m
+  [4;35;1mLogBookEntry Load (1.2ms)[0m   [0mSELECT "log_book_entries".* FROM "log_book_entries" INNER JOIN "users" ON "users".id = "log_book_entries".user_id INNER JOIN "github_projects" ON "github_projects".id = "log_book_entries".github_project_id WHERE ("log_book_entries"."id" IN (6,7,8)) ORDER BY log_book_entries.updated_at[0m
+Rendering search/label
+  [4;36;1mUser Load (0.2ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 7) [0m
+  [4;35;1mGithubProject Load (0.2ms)[0m   [0mSELECT * FROM "github_projects" WHERE ("github_projects"."id" = 3) [0m
+  [4;36;1mTag Load (0.3ms)[0m   [0;1mSELECT "tags".* FROM "tags" INNER JOIN "taggings" ON "tags".id = "taggings".tag_id WHERE (("taggings".taggable_id = 7) AND ("taggings".taggable_type = 'LogBookEntry')) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 7) [0m
+  [4;36;1mGithubProject Load (0.2ms)[0m   [0;1mSELECT * FROM "github_projects" WHERE ("github_projects"."id" = 2) [0m
+  [4;35;1mTag Load (0.3ms)[0m   [0mSELECT "tags".* FROM "tags" INNER JOIN "taggings" ON "tags".id = "taggings".tag_id WHERE (("taggings".taggable_id = 8) AND ("taggings".taggable_type = 'LogBookEntry')) [0m
+  [4;36;1mUser Load (0.2ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 6) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "github_projects" WHERE ("github_projects"."id" = 3) [0m
+  [4;36;1mTag Load (0.3ms)[0m   [0;1mSELECT "tags".* FROM "tags" INNER JOIN "taggings" ON "tags".id = "taggings".tag_id WHERE (("taggings".taggable_id = 6) AND ("taggings".taggable_type = 'LogBookEntry')) [0m
+Completed in 33ms (View: 17, DB: 4) | 200 OK [http://localhost/search/label?order=log_book_entries.updated_at&tag=tag9]
+
+
+Processing SearchController#label (for 127.0.0.1 at 2010-03-12 16:40:08) [GET]
+  Parameters: {"order"=>"log_book_entries.created_at", "tag"=>"tag9"}
+  [4;35;1mLogBookEntry Load (1.8ms)[0m   [0mSELECT DISTINCT log_book_entries.* FROM "log_book_entries" INNER JOIN taggings log_book_entries_taggings ON log_book_entries_taggings.taggable_id = log_book_entries.id AND log_book_entries_taggings.taggable_type = 'LogBookEntry' INNER JOIN tags log_book_entries_tags ON log_book_entries_tags.id = log_book_entries_taggings.tag_id WHERE ((log_book_entries_tags.name LIKE 'tag9')) [0m
+  [4;36;1mLogBookEntry Load (1.4ms)[0m   [0;1mSELECT "log_book_entries".* FROM "log_book_entries" INNER JOIN "users" ON "users".id = "log_book_entries".user_id INNER JOIN "github_projects" ON "github_projects".id = "log_book_entries".github_project_id WHERE ("log_book_entries"."id" IN (6,7,8)) ORDER BY log_book_entries.created_at[0m
+Rendering search/label
+  [4;35;1mUser Load (0.2ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 6) [0m
+  [4;36;1mGithubProject Load (0.2ms)[0m   [0;1mSELECT * FROM "github_projects" WHERE ("github_projects"."id" = 3) [0m
+  [4;35;1mTag Load (0.3ms)[0m   [0mSELECT "tags".* FROM "tags" INNER JOIN "taggings" ON "tags".id = "taggings".tag_id WHERE (("taggings".taggable_id = 6) AND ("taggings".taggable_type = 'LogBookEntry')) [0m
+  [4;36;1mUser Load (0.3ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 7) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "github_projects" WHERE ("github_projects"."id" = 3) [0m
+  [4;36;1mTag Load (0.3ms)[0m   [0;1mSELECT "tags".* FROM "tags" INNER JOIN "taggings" ON "tags".id = "taggings".tag_id WHERE (("taggings".taggable_id = 7) AND ("taggings".taggable_type = 'LogBookEntry')) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 7) [0m
+  [4;36;1mGithubProject Load (0.2ms)[0m   [0;1mSELECT * FROM "github_projects" WHERE ("github_projects"."id" = 2) [0m
+  [4;35;1mTag Load (0.3ms)[0m   [0mSELECT "tags".* FROM "tags" INNER JOIN "taggings" ON "tags".id = "taggings".tag_id WHERE (("taggings".taggable_id = 8) AND ("taggings".taggable_type = 'LogBookEntry')) [0m
+Completed in 40ms (View: 18, DB: 5) | 200 OK [http://localhost/search/label?order=log_book_entries.created_at&tag=tag9]
+
+
+Processing SearchController#label (for 127.0.0.1 at 2010-03-12 16:40:21) [GET]
+  Parameters: {"tag"=>"tag 1"}
+  [4;36;1mLogBookEntry Load (1.2ms)[0m   [0;1mSELECT DISTINCT log_book_entries.* FROM "log_book_entries" INNER JOIN taggings log_book_entries_taggings ON log_book_entries_taggings.taggable_id = log_book_entries.id AND log_book_entries_taggings.taggable_type = 'LogBookEntry' INNER JOIN tags log_book_entries_tags ON log_book_entries_tags.id = log_book_entries_taggings.tag_id WHERE ((log_book_entries_tags.name LIKE 'tag 1')) [0m
+  [4;35;1mLogBookEntry Load (0.4ms)[0m   [0mSELECT "log_book_entries".* FROM "log_book_entries" INNER JOIN "users" ON "users".id = "log_book_entries".user_id INNER JOIN "github_projects" ON "github_projects".id = "log_book_entries".github_project_id WHERE ("log_book_entries"."id" = 6) [0m
+Rendering search/label
+  [4;36;1mUser Load (0.2ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 6) [0m
+  [4;35;1mGithubProject Load (0.2ms)[0m   [0mSELECT * FROM "github_projects" WHERE ("github_projects"."id" = 3) [0m
+  [4;36;1mTag Load (0.3ms)[0m   [0;1mSELECT "tags".* FROM "tags" INNER JOIN "taggings" ON "tags".id = "taggings".tag_id WHERE (("taggings".taggable_id = 6) AND ("taggings".taggable_type = 'LogBookEntry')) [0m
+Completed in 26ms (View: 12, DB: 2) | 200 OK [http://localhost/search/label?tag=tag+1]
+
+
+Processing LogBookEntriesController#edit (for 127.0.0.1 at 2010-03-12 16:40:27) [GET]
+  Parameters: {"id"=>"6"}
+  [4;35;1mLogBookEntry Load (0.3ms)[0m   [0mSELECT * FROM "log_book_entries" WHERE ("log_book_entries"."id" = 6) [0m
+  [4;36;1mGithubProject Load (0.9ms)[0m   [0;1mSELECT * FROM "github_projects" ORDER BY title[0m
+  [4;35;1mUser Load (1.3ms)[0m   [0mSELECT * FROM "users" ORDER BY name[0m
+Rendering template within layouts/log_book_entries
+Rendering log_book_entries/edit
+  [4;36;1mTag Load (0.4ms)[0m   [0;1mSELECT "tags".* FROM "tags" INNER JOIN "taggings" ON "tags".id = "taggings".tag_id WHERE (("taggings".taggable_id = 6) AND ("taggings".taggable_type = 'LogBookEntry')) [0m
+Completed in 46ms (View: 20, DB: 3) | 200 OK [http://localhost/log_book_entries/6/edit]
+
+
+Processing LogBookEntriesController#update (for 127.0.0.1 at 2010-03-12 16:40:38) [PUT]
+  Parameters: {"authenticity_token"=>"DVyQpGxTfWFezB0HIqhAl35Lu9N5FTBTxypHVEIasZc=", "log_book_entry"=>{"title"=>"a", "description"=>"b", "solution"=>"c", "user_id"=>"6", "sha_of_problem"=>"aaa", "sha_of_solution"=>"aaa", "github_project_id"=>"3", "tag_list"=>"tag5, tag9, tag2, tag1", "created_at(1i)"=>"2010", "created_at(2i)"=>"3", "created_at(3i)"=>"9", "created_at(4i)"=>"19", "created_at(5i)"=>"42", "updated_at(1i)"=>"2010", "updated_at(2i)"=>"3", "updated_at(3i)"=>"12", "updated_at(4i)"=>"22", "updated_at(5i)"=>"30"}, "commit"=>"Update", "id"=>"6"}
+  [4;35;1mLogBookEntry Load (0.2ms)[0m   [0mSELECT * FROM "log_book_entries" WHERE ("log_book_entries"."id" = 6) [0m
+  [4;36;1mLogBookEntry Load (0.1ms)[0m   [0;1mSELECT "log_book_entries".id FROM "log_book_entries" WHERE ("log_book_entries"."title" = 'a' AND "log_book_entries".id <> 6) LIMIT 1[0m
+  [4;35;1mLogBookEntry Update (0.3ms)[0m   [0mUPDATE "log_book_entries" SET "updated_at" = '2010-03-12 22:40:38' WHERE "id" = 6[0m
+  [4;36;1mTag Load (0.3ms)[0m   [0;1mSELECT "tags".* FROM "tags" INNER JOIN "taggings" ON "tags".id = "taggings".tag_id WHERE (("taggings".taggable_id = 6) AND ("taggings".taggable_type = 'LogBookEntry')) [0m
+  [4;35;1mTagging Load (0.6ms)[0m   [0mSELECT * FROM "taggings" WHERE ("taggings".taggable_id = 6 AND "taggings".taggable_type = 'LogBookEntry' AND (tag_id IN (12,13))) [0m
+  [4;36;1mTag Load (0.5ms)[0m   [0;1mSELECT * FROM "tags" WHERE ("tags"."id" IN (12,13)) [0m
+  [4;35;1mTagging Destroy (0.1ms)[0m   [0mDELETE FROM "taggings" WHERE "id" = 16[0m
+  [4;36;1mTagging Destroy (0.1ms)[0m   [0;1mDELETE FROM "taggings" WHERE "id" = 17[0m
+  [4;35;1mTag Load (0.1ms)[0m   [0mSELECT * FROM "tags" WHERE (name LIKE 'tag2') LIMIT 1[0m
+  [4;36;1mTagging Create (0.1ms)[0m   [0;1mINSERT INTO "taggings" ("tag_id", "taggable_id", "taggable_type", "created_at") VALUES(4, 6, 'LogBookEntry', '2010-03-12 22:40:38')[0m
+  [4;35;1mTag Load (0.1ms)[0m   [0mSELECT * FROM "tags" WHERE (name LIKE 'tag1') LIMIT 1[0m
+  [4;36;1mTagging Create (0.1ms)[0m   [0;1mINSERT INTO "taggings" ("tag_id", "taggable_id", "taggable_type", "created_at") VALUES(3, 6, 'LogBookEntry', '2010-03-12 22:40:38')[0m
+Redirected to http://localhost:3000/log_book_entries/6
+Completed in 23ms (DB: 3) | 302 Found [http://localhost/log_book_entries/6]
+
+
+Processing LogBookEntriesController#show (for 127.0.0.1 at 2010-03-12 16:40:38) [GET]
+  Parameters: {"id"=>"6"}
+  [4;35;1mLogBookEntry Load (0.2ms)[0m   [0mSELECT * FROM "log_book_entries" WHERE ("log_book_entries"."id" = 6) [0m
+Rendering template within layouts/log_book_entries
+Rendering log_book_entries/show
+  [4;36;1mTag Load (0.5ms)[0m   [0;1mSELECT "tags".* FROM "tags" INNER JOIN "taggings" ON "tags".id = "taggings".tag_id WHERE (("taggings".taggable_id = 6) AND ("taggings".taggable_type = 'LogBookEntry')) [0m
+Completed in 13ms (View: 6, DB: 1) | 200 OK [http://localhost/log_book_entries/6]
+
+
+Processing LogBookEntriesController#index (for 127.0.0.1 at 2010-03-12 16:40:41) [GET]
+  [4;35;1mLogBookEntry Load (1.1ms)[0m   [0mSELECT "log_book_entries".* FROM "log_book_entries" INNER JOIN "users" ON "users".id = "log_book_entries".user_id INNER JOIN "github_projects" ON "github_projects".id = "log_book_entries".github_project_id [0m
+Rendering template within layouts/log_book_entries
+Rendering log_book_entries/index
+  [4;36;1mUser Load (0.2ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 8) [0m
+  [4;35;1mGithubProject Load (0.2ms)[0m   [0mSELECT * FROM "github_projects" WHERE ("github_projects"."id" = 4) [0m
+  [4;36;1mTag Load (0.3ms)[0m   [0;1mSELECT "tags".* FROM "tags" INNER JOIN "taggings" ON "tags".id = "taggings".tag_id WHERE (("taggings".taggable_id = 4) AND ("taggings".taggable_type = 'LogBookEntry')) [0m
+  [4;35;1mUser Load (0.2ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 6) [0m
+  [4;36;1mGithubProject Load (0.2ms)[0m   [0;1mSELECT * FROM "github_projects" WHERE ("github_projects"."id" = 3) [0m
+  [4;35;1mTag Load (0.3ms)[0m   [0mSELECT "tags".* FROM "tags" INNER JOIN "taggings" ON "tags".id = "taggings".tag_id WHERE (("taggings".taggable_id = 6) AND ("taggings".taggable_type = 'LogBookEntry')) [0m
+  [4;36;1mUser Load (0.2ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 7) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "github_projects" WHERE ("github_projects"."id" = 3) [0m
+  [4;36;1mTag Load (0.3ms)[0m   [0;1mSELECT "tags".* FROM "tags" INNER JOIN "taggings" ON "tags".id = "taggings".tag_id WHERE (("taggings".taggable_id = 7) AND ("taggings".taggable_type = 'LogBookEntry')) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 7) [0m
+  [4;36;1mGithubProject Load (0.2ms)[0m   [0;1mSELECT * FROM "github_projects" WHERE ("github_projects"."id" = 2) [0m
+  [4;35;1mTag Load (0.3ms)[0m   [0mSELECT "tags".* FROM "tags" INNER JOIN "taggings" ON "tags".id = "taggings".tag_id WHERE (("taggings".taggable_id = 8) AND ("taggings".taggable_type = 'LogBookEntry')) [0m
+Completed in 38ms (View: 21, DB: 3) | 200 OK [http://localhost/log_book_entries]
+
+
+Processing SearchController#label (for 127.0.0.1 at 2010-03-12 16:40:44) [GET]
+  Parameters: {"tag"=>"tag1"}
+  [4;36;1mLogBookEntry Load (1.8ms)[0m   [0;1mSELECT DISTINCT log_book_entries.* FROM "log_book_entries" INNER JOIN taggings log_book_entries_taggings ON log_book_entries_taggings.taggable_id = log_book_entries.id AND log_book_entries_taggings.taggable_type = 'LogBookEntry' INNER JOIN tags log_book_entries_tags ON log_book_entries_tags.id = log_book_entries_taggings.tag_id WHERE ((log_book_entries_tags.name LIKE 'tag1')) [0m
+  [4;35;1mLogBookEntry Load (1.3ms)[0m   [0mSELECT "log_book_entries".* FROM "log_book_entries" INNER JOIN "users" ON "users".id = "log_book_entries".user_id INNER JOIN "github_projects" ON "github_projects".id = "log_book_entries".github_project_id WHERE ("log_book_entries"."id" IN (4,6,8)) [0m
+Rendering search/label
+  [4;36;1mUser Load (0.3ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 8) [0m
+  [4;35;1mGithubProject Load (0.3ms)[0m   [0mSELECT * FROM "github_projects" WHERE ("github_projects"."id" = 4) [0m
+  [4;36;1mTag Load (0.4ms)[0m   [0;1mSELECT "tags".* FROM "tags" INNER JOIN "taggings" ON "tags".id = "taggings".tag_id WHERE (("taggings".taggable_id = 4) AND ("taggings".taggable_type = 'LogBookEntry')) [0m
+  [4;35;1mUser Load (0.3ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 6) [0m
+  [4;36;1mGithubProject Load (0.2ms)[0m   [0;1mSELECT * FROM "github_projects" WHERE ("github_projects"."id" = 3) [0m
+  [4;35;1mTag Load (0.4ms)[0m   [0mSELECT "tags".* FROM "tags" INNER JOIN "taggings" ON "tags".id = "taggings".tag_id WHERE (("taggings".taggable_id = 6) AND ("taggings".taggable_type = 'LogBookEntry')) [0m
+  [4;36;1mUser Load (0.3ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 7) [0m
+  [4;35;1mGithubProject Load (0.2ms)[0m   [0mSELECT * FROM "github_projects" WHERE ("github_projects"."id" = 2) [0m
+  [4;36;1mTag Load (0.4ms)[0m   [0;1mSELECT "tags".* FROM "tags" INNER JOIN "taggings" ON "tags".id = "taggings".tag_id WHERE (("taggings".taggable_id = 8) AND ("taggings".taggable_type = 'LogBookEntry')) [0m
+Completed in 49ms (View: 25, DB: 6) | 200 OK [http://localhost/search/label?tag=tag1]
+
+
+Processing SearchController#label (for 127.0.0.1 at 2010-03-12 16:40:47) [GET]
+  Parameters: {"tag"=>"tag2"}
+  [4;35;1mLogBookEntry Load (1.3ms)[0m   [0mSELECT DISTINCT log_book_entries.* FROM "log_book_entries" INNER JOIN taggings log_book_entries_taggings ON log_book_entries_taggings.taggable_id = log_book_entries.id AND log_book_entries_taggings.taggable_type = 'LogBookEntry' INNER JOIN tags log_book_entries_tags ON log_book_entries_tags.id = log_book_entries_taggings.tag_id WHERE ((log_book_entries_tags.name LIKE 'tag2')) [0m
+  [4;36;1mLogBookEntry Load (0.9ms)[0m   [0;1mSELECT "log_book_entries".* FROM "log_book_entries" INNER JOIN "users" ON "users".id = "log_book_entries".user_id INNER JOIN "github_projects" ON "github_projects".id = "log_book_entries".github_project_id WHERE ("log_book_entries"."id" IN (4,6,8)) [0m
+Rendering search/label
+  [4;35;1mUser Load (0.2ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 8) [0m
+  [4;36;1mGithubProject Load (0.3ms)[0m   [0;1mSELECT * FROM "github_projects" WHERE ("github_projects"."id" = 4) [0m
+  [4;35;1mTag Load (0.3ms)[0m   [0mSELECT "tags".* FROM "tags" INNER JOIN "taggings" ON "tags".id = "taggings".tag_id WHERE (("taggings".taggable_id = 4) AND ("taggings".taggable_type = 'LogBookEntry')) [0m
+  [4;36;1mUser Load (0.2ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 6) [0m
+  [4;35;1mGithubProject Load (0.2ms)[0m   [0mSELECT * FROM "github_projects" WHERE ("github_projects"."id" = 3) [0m
+  [4;36;1mTag Load (0.3ms)[0m   [0;1mSELECT "tags".* FROM "tags" INNER JOIN "taggings" ON "tags".id = "taggings".tag_id WHERE (("taggings".taggable_id = 6) AND ("taggings".taggable_type = 'LogBookEntry')) [0m
+  [4;35;1mUser Load (0.2ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 7) [0m
+  [4;36;1mGithubProject Load (0.2ms)[0m   [0;1mSELECT * FROM "github_projects" WHERE ("github_projects"."id" = 2) [0m
+  [4;35;1mTag Load (0.3ms)[0m   [0mSELECT "tags".* FROM "tags" INNER JOIN "taggings" ON "tags".id = "taggings".tag_id WHERE (("taggings".taggable_id = 8) AND ("taggings".taggable_type = 'LogBookEntry')) [0m
+Completed in 77ms (View: 60, DB: 4) | 200 OK [http://localhost/search/label?tag=tag2]
+
+
+Processing SearchController#label (for 127.0.0.1 at 2010-03-12 16:40:48) [GET]
+  Parameters: {"tag"=>"tag2"}
+  [4;36;1mLogBookEntry Load (1.5ms)[0m   [0;1mSELECT DISTINCT log_book_entries.* FROM "log_book_entries" INNER JOIN taggings log_book_entries_taggings ON log_book_entries_taggings.taggable_id = log_book_entries.id AND log_book_entries_taggings.taggable_type = 'LogBookEntry' INNER JOIN tags log_book_entries_tags ON log_book_entries_tags.id = log_book_entries_taggings.tag_id WHERE ((log_book_entries_tags.name LIKE 'tag2')) [0m
+  [4;35;1mLogBookEntry Load (0.9ms)[0m   [0mSELECT "log_book_entries".* FROM "log_book_entries" INNER JOIN "users" ON "users".id = "log_book_entries".user_id INNER JOIN "github_projects" ON "github_projects".id = "log_book_entries".github_project_id WHERE ("log_book_entries"."id" IN (4,6,8)) [0m
+Rendering search/label
+  [4;36;1mUser Load (0.2ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 8) [0m
+  [4;35;1mGithubProject Load (0.2ms)[0m   [0mSELECT * FROM "github_projects" WHERE ("github_projects"."id" = 4) [0m
+  [4;36;1mTag Load (0.3ms)[0m   [0;1mSELECT "tags".* FROM "tags" INNER JOIN "taggings" ON "tags".id = "taggings".tag_id WHERE (("taggings".taggable_id = 4) AND ("taggings".taggable_type = 'LogBookEntry')) [0m
+  [4;35;1mUser Load (0.2ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 6) [0m
+  [4;36;1mGithubProject Load (0.2ms)[0m   [0;1mSELECT * FROM "github_projects" WHERE ("github_projects"."id" = 3) [0m
+  [4;35;1mTag Load (0.3ms)[0m   [0mSELECT "tags".* FROM "tags" INNER JOIN "taggings" ON "tags".id = "taggings".tag_id WHERE (("taggings".taggable_id = 6) AND ("taggings".taggable_type = 'LogBookEntry')) [0m
+  [4;36;1mUser Load (0.2ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 7) [0m
+  [4;35;1mGithubProject Load (0.2ms)[0m   [0mSELECT * FROM "github_projects" WHERE ("github_projects"."id" = 2) [0m
+  [4;36;1mTag Load (0.3ms)[0m   [0;1mSELECT "tags".* FROM "tags" INNER JOIN "taggings" ON "tags".id = "taggings".tag_id WHERE (("taggings".taggable_id = 8) AND ("taggings".taggable_type = 'LogBookEntry')) [0m
+Completed in 36ms (View: 17, DB: 4) | 200 OK [http://localhost/search/label?tag=tag2]
+
+
+Processing SearchController#label (for 127.0.0.1 at 2010-03-12 16:40:50) [GET]
+  Parameters: {"tag"=>"tag1"}
+  [4;35;1mLogBookEntry Load (1.3ms)[0m   [0mSELECT DISTINCT log_book_entries.* FROM "log_book_entries" INNER JOIN taggings log_book_entries_taggings ON log_book_entries_taggings.taggable_id = log_book_entries.id AND log_book_entries_taggings.taggable_type = 'LogBookEntry' INNER JOIN tags log_book_entries_tags ON log_book_entries_tags.id = log_book_entries_taggings.tag_id WHERE ((log_book_entries_tags.name LIKE 'tag1')) [0m
+  [4;36;1mLogBookEntry Load (0.8ms)[0m   [0;1mSELECT "log_book_entries".* FROM "log_book_entries" INNER JOIN "users" ON "users".id = "log_book_entries".user_id INNER JOIN "github_projects" ON "github_projects".id = "log_book_entries".github_project_id WHERE ("log_book_entries"."id" IN (4,6,8)) [0m
+Rendering search/label
+  [4;35;1mUser Load (0.2ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 8) [0m
+  [4;36;1mGithubProject Load (0.2ms)[0m   [0;1mSELECT * FROM "github_projects" WHERE ("github_projects"."id" = 4) [0m
+  [4;35;1mTag Load (0.3ms)[0m   [0mSELECT "tags".* FROM "tags" INNER JOIN "taggings" ON "tags".id = "taggings".tag_id WHERE (("taggings".taggable_id = 4) AND ("taggings".taggable_type = 'LogBookEntry')) [0m
+  [4;36;1mUser Load (0.3ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 6) [0m
+  [4;35;1mGithubProject Load (0.2ms)[0m   [0mSELECT * FROM "github_projects" WHERE ("github_projects"."id" = 3) [0m
+  [4;36;1mTag Load (0.3ms)[0m   [0;1mSELECT "tags".* FROM "tags" INNER JOIN "taggings" ON "tags".id = "taggings".tag_id WHERE (("taggings".taggable_id = 6) AND ("taggings".taggable_type = 'LogBookEntry')) [0m
+  [4;35;1mUser Load (0.2ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 7) [0m
+  [4;36;1mGithubProject Load (0.2ms)[0m   [0;1mSELECT * FROM "github_projects" WHERE ("github_projects"."id" = 2) [0m
+  [4;35;1mTag Load (0.2ms)[0m   [0mSELECT "tags".* FROM "tags" INNER JOIN "taggings" ON "tags".id = "taggings".tag_id WHERE (("taggings".taggable_id = 8) AND ("taggings".taggable_type = 'LogBookEntry')) [0m
+Completed in 33ms (View: 17, DB: 4) | 200 OK [http://localhost/search/label?tag=tag1]
+
+
+Processing SearchController#label (for 127.0.0.1 at 2010-03-12 16:40:51) [GET]
+  Parameters: {"tag"=>"tag2"}
+  [4;36;1mLogBookEntry Load (1.4ms)[0m   [0;1mSELECT DISTINCT log_book_entries.* FROM "log_book_entries" INNER JOIN taggings log_book_entries_taggings ON log_book_entries_taggings.taggable_id = log_book_entries.id AND log_book_entries_taggings.taggable_type = 'LogBookEntry' INNER JOIN tags log_book_entries_tags ON log_book_entries_tags.id = log_book_entries_taggings.tag_id WHERE ((log_book_entries_tags.name LIKE 'tag2')) [0m
+  [4;35;1mLogBookEntry Load (0.9ms)[0m   [0mSELECT "log_book_entries".* FROM "log_book_entries" INNER JOIN "users" ON "users".id = "log_book_entries".user_id INNER JOIN "github_projects" ON "github_projects".id = "log_book_entries".github_project_id WHERE ("log_book_entries"."id" IN (4,6,8)) [0m
+Rendering search/label
+  [4;36;1mUser Load (0.2ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 8) [0m
+  [4;35;1mGithubProject Load (0.2ms)[0m   [0mSELECT * FROM "github_projects" WHERE ("github_projects"."id" = 4) [0m
+  [4;36;1mTag Load (0.3ms)[0m   [0;1mSELECT "tags".* FROM "tags" INNER JOIN "taggings" ON "tags".id = "taggings".tag_id WHERE (("taggings".taggable_id = 4) AND ("taggings".taggable_type = 'LogBookEntry')) [0m
+  [4;35;1mUser Load (0.2ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 6) [0m
+  [4;36;1mGithubProject Load (0.2ms)[0m   [0;1mSELECT * FROM "github_projects" WHERE ("github_projects"."id" = 3) [0m
+  [4;35;1mTag Load (0.2ms)[0m   [0mSELECT "tags".* FROM "tags" INNER JOIN "taggings" ON "tags".id = "taggings".tag_id WHERE (("taggings".taggable_id = 6) AND ("taggings".taggable_type = 'LogBookEntry')) [0m
+  [4;36;1mUser Load (0.2ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 7) [0m
+  [4;35;1mGithubProject Load (0.2ms)[0m   [0mSELECT * FROM "github_projects" WHERE ("github_projects"."id" = 2) [0m
+  [4;36;1mTag Load (0.2ms)[0m   [0;1mSELECT "tags".* FROM "tags" INNER JOIN "taggings" ON "tags".id = "taggings".tag_id WHERE (("taggings".taggable_id = 8) AND ("taggings".taggable_type = 'LogBookEntry')) [0m
+Completed in 33ms (View: 17, DB: 4) | 200 OK [http://localhost/search/label?tag=tag2]
+
+
+Processing SearchController#label (for 127.0.0.1 at 2010-03-12 16:40:53) [GET]
+  Parameters: {"tag"=>"tag1"}
+  [4;35;1mLogBookEntry Load (1.3ms)[0m   [0mSELECT DISTINCT log_book_entries.* FROM "log_book_entries" INNER JOIN taggings log_book_entries_taggings ON log_book_entries_taggings.taggable_id = log_book_entries.id AND log_book_entries_taggings.taggable_type = 'LogBookEntry' INNER JOIN tags log_book_entries_tags ON log_book_entries_tags.id = log_book_entries_taggings.tag_id WHERE ((log_book_entries_tags.name LIKE 'tag1')) [0m
+  [4;36;1mLogBookEntry Load (0.8ms)[0m   [0;1mSELECT "log_book_entries".* FROM "log_book_entries" INNER JOIN "users" ON "users".id = "log_book_entries".user_id INNER JOIN "github_projects" ON "github_projects".id = "log_book_entries".github_project_id WHERE ("log_book_entries"."id" IN (4,6,8)) [0m
+Rendering search/label
+  [4;35;1mUser Load (0.2ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 8) [0m
+  [4;36;1mGithubProject Load (0.2ms)[0m   [0;1mSELECT * FROM "github_projects" WHERE ("github_projects"."id" = 4) [0m
+  [4;35;1mTag Load (0.3ms)[0m   [0mSELECT "tags".* FROM "tags" INNER JOIN "taggings" ON "tags".id = "taggings".tag_id WHERE (("taggings".taggable_id = 4) AND ("taggings".taggable_type = 'LogBookEntry')) [0m
+  [4;36;1mUser Load (0.2ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 6) [0m
+  [4;35;1mGithubProject Load (0.2ms)[0m   [0mSELECT * FROM "github_projects" WHERE ("github_projects"."id" = 3) [0m
+  [4;36;1mTag Load (0.3ms)[0m   [0;1mSELECT "tags".* FROM "tags" INNER JOIN "taggings" ON "tags".id = "taggings".tag_id WHERE (("taggings".taggable_id = 6) AND ("taggings".taggable_type = 'LogBookEntry')) [0m
+  [4;35;1mUser Load (0.2ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 7) [0m
+  [4;36;1mGithubProject Load (0.2ms)[0m   [0;1mSELECT * FROM "github_projects" WHERE ("github_projects"."id" = 2) [0m
+  [4;35;1mTag Load (0.3ms)[0m   [0mSELECT "tags".* FROM "tags" INNER JOIN "taggings" ON "tags".id = "taggings".tag_id WHERE (("taggings".taggable_id = 8) AND ("taggings".taggable_type = 'LogBookEntry')) [0m
+Completed in 33ms (View: 17, DB: 4) | 200 OK [http://localhost/search/label?tag=tag1]
+
+
+Processing LogBookEntriesController#index (for 127.0.0.1 at 2010-03-16 09:10:44) [GET]
+  [4;36;1mLogBookEntry Load (13.5ms)[0m   [0;1mSELECT "log_book_entries".* FROM "log_book_entries" INNER JOIN "users" ON "users".id = "log_book_entries".user_id INNER JOIN "github_projects" ON "github_projects".id = "log_book_entries".github_project_id [0m
+Rendering template within layouts/log_book_entries
+Rendering log_book_entries/index
+  [4;35;1mUser Load (0.2ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 8) [0m
+  [4;36;1mGithubProject Load (0.2ms)[0m   [0;1mSELECT * FROM "github_projects" WHERE ("github_projects"."id" = 4) [0m
+  [4;35;1mTag Load (10.8ms)[0m   [0mSELECT "tags".* FROM "tags" INNER JOIN "taggings" ON "tags".id = "taggings".tag_id WHERE (("taggings".taggable_id = 4) AND ("taggings".taggable_type = 'LogBookEntry')) [0m
+  [4;36;1mUser Load (0.3ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 6) [0m
+  [4;35;1mGithubProject Load (0.2ms)[0m   [0mSELECT * FROM "github_projects" WHERE ("github_projects"."id" = 3) [0m
+  [4;36;1mTag Load (0.3ms)[0m   [0;1mSELECT "tags".* FROM "tags" INNER JOIN "taggings" ON "tags".id = "taggings".tag_id WHERE (("taggings".taggable_id = 6) AND ("taggings".taggable_type = 'LogBookEntry')) [0m
+  [4;35;1mUser Load (0.3ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 7) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "github_projects" WHERE ("github_projects"."id" = 3) [0m
+  [4;35;1mTag Load (0.5ms)[0m   [0mSELECT "tags".* FROM "tags" INNER JOIN "taggings" ON "tags".id = "taggings".tag_id WHERE (("taggings".taggable_id = 7) AND ("taggings".taggable_type = 'LogBookEntry')) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 7) [0m
+  [4;35;1mGithubProject Load (0.2ms)[0m   [0mSELECT * FROM "github_projects" WHERE ("github_projects"."id" = 2) [0m
+  [4;36;1mTag Load (0.3ms)[0m   [0;1mSELECT "tags".* FROM "tags" INNER JOIN "taggings" ON "tags".id = "taggings".tag_id WHERE (("taggings".taggable_id = 8) AND ("taggings".taggable_type = 'LogBookEntry')) [0m
+Completed in 528ms (View: 439, DB: 27) | 200 OK [http://localhost/log_book_entries]
+
+
+Processing SearchController#label (for 127.0.0.1 at 2010-03-16 09:10:48) [GET]
+  Parameters: {"tag"=>"tag3"}
+  [4;35;1mLogBookEntry Load (1.2ms)[0m   [0mSELECT DISTINCT log_book_entries.* FROM "log_book_entries" INNER JOIN taggings log_book_entries_taggings ON log_book_entries_taggings.taggable_id = log_book_entries.id AND log_book_entries_taggings.taggable_type = 'LogBookEntry' INNER JOIN tags log_book_entries_tags ON log_book_entries_tags.id = log_book_entries_taggings.tag_id WHERE ((log_book_entries_tags.name LIKE 'tag3')) [0m
+  [4;36;1mLogBookEntry Load (0.8ms)[0m   [0;1mSELECT "log_book_entries".* FROM "log_book_entries" INNER JOIN "users" ON "users".id = "log_book_entries".user_id INNER JOIN "github_projects" ON "github_projects".id = "log_book_entries".github_project_id WHERE ("log_book_entries"."id" IN (4,7)) [0m
+Rendering search/label
+  [4;35;1mUser Load (0.2ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 8) [0m
+  [4;36;1mGithubProject Load (0.2ms)[0m   [0;1mSELECT * FROM "github_projects" WHERE ("github_projects"."id" = 4) [0m
+  [4;35;1mTag Load (0.3ms)[0m   [0mSELECT "tags".* FROM "tags" INNER JOIN "taggings" ON "tags".id = "taggings".tag_id WHERE (("taggings".taggable_id = 4) AND ("taggings".taggable_type = 'LogBookEntry')) [0m
+  [4;36;1mUser Load (0.3ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 7) [0m
+  [4;35;1mGithubProject Load (0.2ms)[0m   [0mSELECT * FROM "github_projects" WHERE ("github_projects"."id" = 3) [0m
+  [4;36;1mTag Load (0.3ms)[0m   [0;1mSELECT "tags".* FROM "tags" INNER JOIN "taggings" ON "tags".id = "taggings".tag_id WHERE (("taggings".taggable_id = 7) AND ("taggings".taggable_type = 'LogBookEntry')) [0m
+Completed in 60ms (View: 44, DB: 3) | 200 OK [http://localhost/search/label?tag=tag3]
+
+
+Processing SearchController#label (for 127.0.0.1 at 2010-03-16 09:10:51) [GET]
+  Parameters: {"tag"=>"tag2"}
+  [4;35;1mLogBookEntry Load (1.2ms)[0m   [0mSELECT DISTINCT log_book_entries.* FROM "log_book_entries" INNER JOIN taggings log_book_entries_taggings ON log_book_entries_taggings.taggable_id = log_book_entries.id AND log_book_entries_taggings.taggable_type = 'LogBookEntry' INNER JOIN tags log_book_entries_tags ON log_book_entries_tags.id = log_book_entries_taggings.tag_id WHERE ((log_book_entries_tags.name LIKE 'tag2')) [0m
+  [4;36;1mLogBookEntry Load (0.8ms)[0m   [0;1mSELECT "log_book_entries".* FROM "log_book_entries" INNER JOIN "users" ON "users".id = "log_book_entries".user_id INNER JOIN "github_projects" ON "github_projects".id = "log_book_entries".github_project_id WHERE ("log_book_entries"."id" IN (4,6,8)) [0m
+Rendering search/label
+  [4;35;1mUser Load (0.2ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 8) [0m
+  [4;36;1mGithubProject Load (0.3ms)[0m   [0;1mSELECT * FROM "github_projects" WHERE ("github_projects"."id" = 4) [0m
+  [4;35;1mTag Load (0.4ms)[0m   [0mSELECT "tags".* FROM "tags" INNER JOIN "taggings" ON "tags".id = "taggings".tag_id WHERE (("taggings".taggable_id = 4) AND ("taggings".taggable_type = 'LogBookEntry')) [0m
+  [4;36;1mUser Load (0.3ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 6) [0m
+  [4;35;1mGithubProject Load (0.2ms)[0m   [0mSELECT * FROM "github_projects" WHERE ("github_projects"."id" = 3) [0m
+  [4;36;1mTag Load (0.3ms)[0m   [0;1mSELECT "tags".* FROM "tags" INNER JOIN "taggings" ON "tags".id = "taggings".tag_id WHERE (("taggings".taggable_id = 6) AND ("taggings".taggable_type = 'LogBookEntry')) [0m
+  [4;35;1mUser Load (0.2ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 7) [0m
+  [4;36;1mGithubProject Load (0.2ms)[0m   [0;1mSELECT * FROM "github_projects" WHERE ("github_projects"."id" = 2) [0m
+  [4;35;1mTag Load (0.3ms)[0m   [0mSELECT "tags".* FROM "tags" INNER JOIN "taggings" ON "tags".id = "taggings".tag_id WHERE (("taggings".taggable_id = 8) AND ("taggings".taggable_type = 'LogBookEntry')) [0m
+Completed in 37ms (View: 21, DB: 4) | 200 OK [http://localhost/search/label?tag=tag2]
+
+
+Processing SearchController#label (for 127.0.0.1 at 2010-03-16 09:10:53) [GET]
+  Parameters: {"order"=>"description", "tag"=>"tag2"}
+  [4;36;1mLogBookEntry Load (1.3ms)[0m   [0;1mSELECT DISTINCT log_book_entries.* FROM "log_book_entries" INNER JOIN taggings log_book_entries_taggings ON log_book_entries_taggings.taggable_id = log_book_entries.id AND log_book_entries_taggings.taggable_type = 'LogBookEntry' INNER JOIN tags log_book_entries_tags ON log_book_entries_tags.id = log_book_entries_taggings.tag_id WHERE ((log_book_entries_tags.name LIKE 'tag2')) [0m
+  [4;35;1mLogBookEntry Load (1.2ms)[0m   [0mSELECT "log_book_entries".* FROM "log_book_entries" INNER JOIN "users" ON "users".id = "log_book_entries".user_id INNER JOIN "github_projects" ON "github_projects".id = "log_book_entries".github_project_id WHERE ("log_book_entries"."id" IN (4,6,8)) ORDER BY description[0m
+Rendering search/label
+  [4;36;1mUser Load (0.2ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 6) [0m
+  [4;35;1mGithubProject Load (0.2ms)[0m   [0mSELECT * FROM "github_projects" WHERE ("github_projects"."id" = 3) [0m
+  [4;36;1mTag Load (0.4ms)[0m   [0;1mSELECT "tags".* FROM "tags" INNER JOIN "taggings" ON "tags".id = "taggings".tag_id WHERE (("taggings".taggable_id = 6) AND ("taggings".taggable_type = 'LogBookEntry')) [0m
+  [4;35;1mUser Load (0.2ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 8) [0m
+  [4;36;1mGithubProject Load (0.2ms)[0m   [0;1mSELECT * FROM "github_projects" WHERE ("github_projects"."id" = 4) [0m
+  [4;35;1mTag Load (0.3ms)[0m   [0mSELECT "tags".* FROM "tags" INNER JOIN "taggings" ON "tags".id = "taggings".tag_id WHERE (("taggings".taggable_id = 4) AND ("taggings".taggable_type = 'LogBookEntry')) [0m
+  [4;36;1mUser Load (0.2ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 7) [0m
+  [4;35;1mGithubProject Load (0.2ms)[0m   [0mSELECT * FROM "github_projects" WHERE ("github_projects"."id" = 2) [0m
+  [4;36;1mTag Load (0.3ms)[0m   [0;1mSELECT "tags".* FROM "tags" INNER JOIN "taggings" ON "tags".id = "taggings".tag_id WHERE (("taggings".taggable_id = 8) AND ("taggings".taggable_type = 'LogBookEntry')) [0m
+Completed in 37ms (View: 20, DB: 5) | 200 OK [http://localhost/search/label?order=description&tag=tag2]
+
+
+Processing SearchController#label (for 127.0.0.1 at 2010-03-16 09:10:55) [GET]
+  Parameters: {"order"=>"solution", "tag"=>"tag2"}
+  [4;35;1mLogBookEntry Load (1.9ms)[0m   [0mSELECT DISTINCT log_book_entries.* FROM "log_book_entries" INNER JOIN taggings log_book_entries_taggings ON log_book_entries_taggings.taggable_id = log_book_entries.id AND log_book_entries_taggings.taggable_type = 'LogBookEntry' INNER JOIN tags log_book_entries_tags ON log_book_entries_tags.id = log_book_entries_taggings.tag_id WHERE ((log_book_entries_tags.name LIKE 'tag2')) [0m
+  [4;36;1mLogBookEntry Load (1.2ms)[0m   [0;1mSELECT "log_book_entries".* FROM "log_book_entries" INNER JOIN "users" ON "users".id = "log_book_entries".user_id INNER JOIN "github_projects" ON "github_projects".id = "log_book_entries".github_project_id WHERE ("log_book_entries"."id" IN (4,6,8)) ORDER BY solution[0m
+Rendering search/label
+  [4;35;1mUser Load (0.3ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 6) [0m
+  [4;36;1mGithubProject Load (0.2ms)[0m   [0;1mSELECT * FROM "github_projects" WHERE ("github_projects"."id" = 3) [0m
+  [4;35;1mTag Load (0.4ms)[0m   [0mSELECT "tags".* FROM "tags" INNER JOIN "taggings" ON "tags".id = "taggings".tag_id WHERE (("taggings".taggable_id = 6) AND ("taggings".taggable_type = 'LogBookEntry')) [0m
+  [4;36;1mUser Load (0.3ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 8) [0m
+  [4;35;1mGithubProject Load (0.2ms)[0m   [0mSELECT * FROM "github_projects" WHERE ("github_projects"."id" = 4) [0m
+  [4;36;1mTag Load (0.3ms)[0m   [0;1mSELECT "tags".* FROM "tags" INNER JOIN "taggings" ON "tags".id = "taggings".tag_id WHERE (("taggings".taggable_id = 4) AND ("taggings".taggable_type = 'LogBookEntry')) [0m
+  [4;35;1mUser Load (0.2ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 7) [0m
+  [4;36;1mGithubProject Load (0.2ms)[0m   [0;1mSELECT * FROM "github_projects" WHERE ("github_projects"."id" = 2) [0m
+  [4;35;1mTag Load (0.3ms)[0m   [0mSELECT "tags".* FROM "tags" INNER JOIN "taggings" ON "tags".id = "taggings".tag_id WHERE (("taggings".taggable_id = 8) AND ("taggings".taggable_type = 'LogBookEntry')) [0m
+Completed in 38ms (View: 18, DB: 5) | 200 OK [http://localhost/search/label?order=solution&tag=tag2]
+
+
+Processing SearchController#label (for 127.0.0.1 at 2010-03-16 09:10:56) [GET]
+  Parameters: {"order"=>"users.name", "tag"=>"tag2"}
+  [4;36;1mLogBookEntry Load (1.3ms)[0m   [0;1mSELECT DISTINCT log_book_entries.* FROM "log_book_entries" INNER JOIN taggings log_book_entries_taggings ON log_book_entries_taggings.taggable_id = log_book_entries.id AND log_book_entries_taggings.taggable_type = 'LogBookEntry' INNER JOIN tags log_book_entries_tags ON log_book_entries_tags.id = log_book_entries_taggings.tag_id WHERE ((log_book_entries_tags.name LIKE 'tag2')) [0m
+  [4;35;1mLogBookEntry Load (1.2ms)[0m   [0mSELECT "log_book_entries".* FROM "log_book_entries" INNER JOIN "users" ON "users".id = "log_book_entries".user_id INNER JOIN "github_projects" ON "github_projects".id = "log_book_entries".github_project_id WHERE ("log_book_entries"."id" IN (4,6,8)) ORDER BY users.name[0m
+Rendering search/label
+  [4;36;1mUser Load (0.2ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 6) [0m
+  [4;35;1mGithubProject Load (0.2ms)[0m   [0mSELECT * FROM "github_projects" WHERE ("github_projects"."id" = 3) [0m
+  [4;36;1mTag Load (0.3ms)[0m   [0;1mSELECT "tags".* FROM "tags" INNER JOIN "taggings" ON "tags".id = "taggings".tag_id WHERE (("taggings".taggable_id = 6) AND ("taggings".taggable_type = 'LogBookEntry')) [0m
+  [4;35;1mUser Load (0.2ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 7) [0m
+  [4;36;1mGithubProject Load (0.2ms)[0m   [0;1mSELECT * FROM "github_projects" WHERE ("github_projects"."id" = 2) [0m
+  [4;35;1mTag Load (0.2ms)[0m   [0mSELECT "tags".* FROM "tags" INNER JOIN "taggings" ON "tags".id = "taggings".tag_id WHERE (("taggings".taggable_id = 8) AND ("taggings".taggable_type = 'LogBookEntry')) [0m
+  [4;36;1mUser Load (0.2ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 8) [0m
+  [4;35;1mGithubProject Load (0.2ms)[0m   [0mSELECT * FROM "github_projects" WHERE ("github_projects"."id" = 4) [0m
+  [4;36;1mTag Load (0.2ms)[0m   [0;1mSELECT "tags".* FROM "tags" INNER JOIN "taggings" ON "tags".id = "taggings".tag_id WHERE (("taggings".taggable_id = 4) AND ("taggings".taggable_type = 'LogBookEntry')) [0m
+Completed in 38ms (View: 17, DB: 4) | 200 OK [http://localhost/search/label?order=users.name&tag=tag2]
+
+
+Processing SearchController#label (for 127.0.0.1 at 2010-03-16 09:10:58) [GET]
+  Parameters: {"order"=>"sha_of_problem", "tag"=>"tag2"}
+  [4;35;1mLogBookEntry Load (2.2ms)[0m   [0mSELECT DISTINCT log_book_entries.* FROM "log_book_entries" INNER JOIN taggings log_book_entries_taggings ON log_book_entries_taggings.taggable_id = log_book_entries.id AND log_book_entries_taggings.taggable_type = 'LogBookEntry' INNER JOIN tags log_book_entries_tags ON log_book_entries_tags.id = log_book_entries_taggings.tag_id WHERE ((log_book_entries_tags.name LIKE 'tag2')) [0m
+  [4;36;1mLogBookEntry Load (1.2ms)[0m   [0;1mSELECT "log_book_entries".* FROM "log_book_entries" INNER JOIN "users" ON "users".id = "log_book_entries".user_id INNER JOIN "github_projects" ON "github_projects".id = "log_book_entries".github_project_id WHERE ("log_book_entries"."id" IN (4,6,8)) ORDER BY sha_of_problem[0m
+Rendering search/label
+  [4;35;1mUser Load (0.2ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 8) [0m
+  [4;36;1mGithubProject Load (0.2ms)[0m   [0;1mSELECT * FROM "github_projects" WHERE ("github_projects"."id" = 4) [0m
+  [4;35;1mTag Load (0.3ms)[0m   [0mSELECT "tags".* FROM "tags" INNER JOIN "taggings" ON "tags".id = "taggings".tag_id WHERE (("taggings".taggable_id = 4) AND ("taggings".taggable_type = 'LogBookEntry')) [0m
+  [4;36;1mUser Load (0.2ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 7) [0m
+  [4;35;1mGithubProject Load (0.2ms)[0m   [0mSELECT * FROM "github_projects" WHERE ("github_projects"."id" = 2) [0m
+  [4;36;1mTag Load (0.2ms)[0m   [0;1mSELECT "tags".* FROM "tags" INNER JOIN "taggings" ON "tags".id = "taggings".tag_id WHERE (("taggings".taggable_id = 8) AND ("taggings".taggable_type = 'LogBookEntry')) [0m
+  [4;35;1mUser Load (0.2ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 6) [0m
+  [4;36;1mGithubProject Load (0.2ms)[0m   [0;1mSELECT * FROM "github_projects" WHERE ("github_projects"."id" = 3) [0m
+  [4;35;1mTag Load (0.2ms)[0m   [0mSELECT "tags".* FROM "tags" INNER JOIN "taggings" ON "tags".id = "taggings".tag_id WHERE (("taggings".taggable_id = 6) AND ("taggings".taggable_type = 'LogBookEntry')) [0m
+Completed in 40ms (View: 17, DB: 5) | 200 OK [http://localhost/search/label?order=sha_of_problem&tag=tag2]
+
+
+Processing SearchController#label (for 127.0.0.1 at 2010-03-16 09:10:59) [GET]
+  Parameters: {"order"=>"users.name", "tag"=>"tag2"}
+  [4;36;1mLogBookEntry Load (1.2ms)[0m   [0;1mSELECT DISTINCT log_book_entries.* FROM "log_book_entries" INNER JOIN taggings log_book_entries_taggings ON log_book_entries_taggings.taggable_id = log_book_entries.id AND log_book_entries_taggings.taggable_type = 'LogBookEntry' INNER JOIN tags log_book_entries_tags ON log_book_entries_tags.id = log_book_entries_taggings.tag_id WHERE ((log_book_entries_tags.name LIKE 'tag2')) [0m
+  [4;35;1mLogBookEntry Load (1.3ms)[0m   [0mSELECT "log_book_entries".* FROM "log_book_entries" INNER JOIN "users" ON "users".id = "log_book_entries".user_id INNER JOIN "github_projects" ON "github_projects".id = "log_book_entries".github_project_id WHERE ("log_book_entries"."id" IN (4,6,8)) ORDER BY users.name[0m
+Rendering search/label
+  [4;36;1mUser Load (0.2ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 6) [0m
+  [4;35;1mGithubProject Load (0.2ms)[0m   [0mSELECT * FROM "github_projects" WHERE ("github_projects"."id" = 3) [0m
+  [4;36;1mTag Load (0.3ms)[0m   [0;1mSELECT "tags".* FROM "tags" INNER JOIN "taggings" ON "tags".id = "taggings".tag_id WHERE (("taggings".taggable_id = 6) AND ("taggings".taggable_type = 'LogBookEntry')) [0m
+  [4;35;1mUser Load (0.2ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 7) [0m
+  [4;36;1mGithubProject Load (0.2ms)[0m   [0;1mSELECT * FROM "github_projects" WHERE ("github_projects"."id" = 2) [0m
+  [4;35;1mTag Load (0.3ms)[0m   [0mSELECT "tags".* FROM "tags" INNER JOIN "taggings" ON "tags".id = "taggings".tag_id WHERE (("taggings".taggable_id = 8) AND ("taggings".taggable_type = 'LogBookEntry')) [0m
+  [4;36;1mUser Load (0.2ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 8) [0m
+  [4;35;1mGithubProject Load (0.2ms)[0m   [0mSELECT * FROM "github_projects" WHERE ("github_projects"."id" = 4) [0m
+  [4;36;1mTag Load (0.2ms)[0m   [0;1mSELECT "tags".* FROM "tags" INNER JOIN "taggings" ON "tags".id = "taggings".tag_id WHERE (("taggings".taggable_id = 4) AND ("taggings".taggable_type = 'LogBookEntry')) [0m
+Completed in 37ms (View: 17, DB: 4) | 200 OK [http://localhost/search/label?order=users.name&tag=tag2]
+
+
+Processing SearchController#label (for 127.0.0.1 at 2010-03-16 09:14:44) [GET]
+  Parameters: {"order"=>"github_projects.title", "tag"=>"tag2"}
+  [4;35;1mLogBookEntry Load (2.1ms)[0m   [0mSELECT DISTINCT log_book_entries.* FROM "log_book_entries" INNER JOIN taggings log_book_entries_taggings ON log_book_entries_taggings.taggable_id = log_book_entries.id AND log_book_entries_taggings.taggable_type = 'LogBookEntry' INNER JOIN tags log_book_entries_tags ON log_book_entries_tags.id = log_book_entries_taggings.tag_id WHERE ((log_book_entries_tags.name LIKE 'tag2')) [0m
+  [4;36;1mLogBookEntry Load (1.2ms)[0m   [0;1mSELECT "log_book_entries".* FROM "log_book_entries" INNER JOIN "users" ON "users".id = "log_book_entries".user_id INNER JOIN "github_projects" ON "github_projects".id = "log_book_entries".github_project_id WHERE ("log_book_entries"."id" IN (4,6,8)) ORDER BY github_projects.title[0m
+Rendering search/label
+  [4;35;1mUser Load (0.2ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 6) [0m
+  [4;36;1mGithubProject Load (0.2ms)[0m   [0;1mSELECT * FROM "github_projects" WHERE ("github_projects"."id" = 3) [0m
+  [4;35;1mTag Load (0.3ms)[0m   [0mSELECT "tags".* FROM "tags" INNER JOIN "taggings" ON "tags".id = "taggings".tag_id WHERE (("taggings".taggable_id = 6) AND ("taggings".taggable_type = 'LogBookEntry')) [0m
+  [4;36;1mUser Load (0.2ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 7) [0m
+  [4;35;1mGithubProject Load (0.2ms)[0m   [0mSELECT * FROM "github_projects" WHERE ("github_projects"."id" = 2) [0m
+  [4;36;1mTag Load (0.3ms)[0m   [0;1mSELECT "tags".* FROM "tags" INNER JOIN "taggings" ON "tags".id = "taggings".tag_id WHERE (("taggings".taggable_id = 8) AND ("taggings".taggable_type = 'LogBookEntry')) [0m
+  [4;35;1mUser Load (0.2ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 8) [0m
+  [4;36;1mGithubProject Load (0.2ms)[0m   [0;1mSELECT * FROM "github_projects" WHERE ("github_projects"."id" = 4) [0m
+  [4;35;1mTag Load (0.3ms)[0m   [0mSELECT "tags".* FROM "tags" INNER JOIN "taggings" ON "tags".id = "taggings".tag_id WHERE (("taggings".taggable_id = 4) AND ("taggings".taggable_type = 'LogBookEntry')) [0m
+Completed in 39ms (View: 17, DB: 5) | 200 OK [http://localhost/search/label?order=github_projects.title&tag=tag2]
+
+
+Processing SearchController#label (for 127.0.0.1 at 2010-03-16 09:14:47) [GET]
+  Parameters: {"order"=>"github_projects.title", "tag"=>"tag2"}
+  [4;36;1mLogBookEntry Load (1.3ms)[0m   [0;1mSELECT DISTINCT log_book_entries.* FROM "log_book_entries" INNER JOIN taggings log_book_entries_taggings ON log_book_entries_taggings.taggable_id = log_book_entries.id AND log_book_entries_taggings.taggable_type = 'LogBookEntry' INNER JOIN tags log_book_entries_tags ON log_book_entries_tags.id = log_book_entries_taggings.tag_id WHERE ((log_book_entries_tags.name LIKE 'tag2')) [0m
+  [4;35;1mLogBookEntry Load (1.1ms)[0m   [0mSELECT "log_book_entries".* FROM "log_book_entries" INNER JOIN "users" ON "users".id = "log_book_entries".user_id INNER JOIN "github_projects" ON "github_projects".id = "log_book_entries".github_project_id WHERE ("log_book_entries"."id" IN (4,6,8)) ORDER BY github_projects.title[0m
+Rendering search/label
+  [4;36;1mUser Load (0.3ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 6) [0m
+  [4;35;1mGithubProject Load (0.3ms)[0m   [0mSELECT * FROM "github_projects" WHERE ("github_projects"."id" = 3) [0m
+  [4;36;1mTag Load (0.4ms)[0m   [0;1mSELECT "tags".* FROM "tags" INNER JOIN "taggings" ON "tags".id = "taggings".tag_id WHERE (("taggings".taggable_id = 6) AND ("taggings".taggable_type = 'LogBookEntry')) [0m
+  [4;35;1mUser Load (0.3ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 7) [0m
+  [4;36;1mGithubProject Load (0.2ms)[0m   [0;1mSELECT * FROM "github_projects" WHERE ("github_projects"."id" = 2) [0m
+  [4;35;1mTag Load (0.3ms)[0m   [0mSELECT "tags".* FROM "tags" INNER JOIN "taggings" ON "tags".id = "taggings".tag_id WHERE (("taggings".taggable_id = 8) AND ("taggings".taggable_type = 'LogBookEntry')) [0m
+  [4;36;1mUser Load (0.2ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 8) [0m
+  [4;35;1mGithubProject Load (0.2ms)[0m   [0mSELECT * FROM "github_projects" WHERE ("github_projects"."id" = 4) [0m
+  [4;36;1mTag Load (0.2ms)[0m   [0;1mSELECT "tags".* FROM "tags" INNER JOIN "taggings" ON "tags".id = "taggings".tag_id WHERE (("taggings".taggable_id = 4) AND ("taggings".taggable_type = 'LogBookEntry')) [0m
+Completed in 39ms (View: 23, DB: 5) | 200 OK [http://localhost/search/label?order=github_projects.title&tag=tag2]
+
+
+Processing SearchController#label (for 127.0.0.1 at 2010-03-16 09:14:48) [GET]
+  Parameters: {"order"=>"sha_of_solution", "tag"=>"tag2"}
+  [4;35;1mLogBookEntry Load (1.3ms)[0m   [0mSELECT DISTINCT log_book_entries.* FROM "log_book_entries" INNER JOIN taggings log_book_entries_taggings ON log_book_entries_taggings.taggable_id = log_book_entries.id AND log_book_entries_taggings.taggable_type = 'LogBookEntry' INNER JOIN tags log_book_entries_tags ON log_book_entries_tags.id = log_book_entries_taggings.tag_id WHERE ((log_book_entries_tags.name LIKE 'tag2')) [0m
+  [4;36;1mLogBookEntry Load (1.9ms)[0m   [0;1mSELECT "log_book_entries".* FROM "log_book_entries" INNER JOIN "users" ON "users".id = "log_book_entries".user_id INNER JOIN "github_projects" ON "github_projects".id = "log_book_entries".github_project_id WHERE ("log_book_entries"."id" IN (4,6,8)) ORDER BY sha_of_solution[0m
+Rendering search/label
+  [4;35;1mUser Load (0.2ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 8) [0m
+  [4;36;1mGithubProject Load (0.2ms)[0m   [0;1mSELECT * FROM "github_projects" WHERE ("github_projects"."id" = 4) [0m
+  [4;35;1mTag Load (0.4ms)[0m   [0mSELECT "tags".* FROM "tags" INNER JOIN "taggings" ON "tags".id = "taggings".tag_id WHERE (("taggings".taggable_id = 4) AND ("taggings".taggable_type = 'LogBookEntry')) [0m
+  [4;36;1mUser Load (0.3ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 7) [0m
+  [4;35;1mGithubProject Load (0.2ms)[0m   [0mSELECT * FROM "github_projects" WHERE ("github_projects"."id" = 2) [0m
+  [4;36;1mTag Load (0.3ms)[0m   [0;1mSELECT "tags".* FROM "tags" INNER JOIN "taggings" ON "tags".id = "taggings".tag_id WHERE (("taggings".taggable_id = 8) AND ("taggings".taggable_type = 'LogBookEntry')) [0m
+  [4;35;1mUser Load (0.3ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 6) [0m
+  [4;36;1mGithubProject Load (0.2ms)[0m   [0;1mSELECT * FROM "github_projects" WHERE ("github_projects"."id" = 3) [0m
+  [4;35;1mTag Load (0.3ms)[0m   [0mSELECT "tags".* FROM "tags" INNER JOIN "taggings" ON "tags".id = "taggings".tag_id WHERE (("taggings".taggable_id = 6) AND ("taggings".taggable_type = 'LogBookEntry')) [0m
+Completed in 102ms (View: 75, DB: 6) | 200 OK [http://localhost/search/label?order=sha_of_solution&tag=tag2]
+
+
+Processing LogBookEntriesController#index (for 127.0.0.1 at 2010-03-16 13:49:16) [GET]
+  [4;36;1mLogBookEntry Load (0.9ms)[0m   [0;1mSELECT "log_book_entries".* FROM "log_book_entries" INNER JOIN "users" ON "users".id = "log_book_entries".user_id INNER JOIN "github_projects" ON "github_projects".id = "log_book_entries".github_project_id [0m
+Rendering template within layouts/log_book_entries
+Rendering log_book_entries/index
+  [4;35;1mUser Load (0.2ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 8) [0m
+  [4;36;1mGithubProject Load (0.2ms)[0m   [0;1mSELECT * FROM "github_projects" WHERE ("github_projects"."id" = 4) [0m
+  [4;35;1mTag Load (0.3ms)[0m   [0mSELECT "tags".* FROM "tags" INNER JOIN "taggings" ON "tags".id = "taggings".tag_id WHERE (("taggings".taggable_id = 4) AND ("taggings".taggable_type = 'LogBookEntry')) [0m
+  [4;36;1mUser Load (0.2ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 6) [0m
+  [4;35;1mGithubProject Load (0.2ms)[0m   [0mSELECT * FROM "github_projects" WHERE ("github_projects"."id" = 3) [0m
+  [4;36;1mTag Load (0.2ms)[0m   [0;1mSELECT "tags".* FROM "tags" INNER JOIN "taggings" ON "tags".id = "taggings".tag_id WHERE (("taggings".taggable_id = 6) AND ("taggings".taggable_type = 'LogBookEntry')) [0m
+  [4;35;1mUser Load (0.2ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 7) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "github_projects" WHERE ("github_projects"."id" = 3) [0m
+  [4;35;1mTag Load (0.2ms)[0m   [0mSELECT "tags".* FROM "tags" INNER JOIN "taggings" ON "tags".id = "taggings".tag_id WHERE (("taggings".taggable_id = 7) AND ("taggings".taggable_type = 'LogBookEntry')) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 7) [0m
+  [4;35;1mGithubProject Load (0.2ms)[0m   [0mSELECT * FROM "github_projects" WHERE ("github_projects"."id" = 2) [0m
+  [4;36;1mTag Load (0.3ms)[0m   [0;1mSELECT "tags".* FROM "tags" INNER JOIN "taggings" ON "tags".id = "taggings".tag_id WHERE (("taggings".taggable_id = 8) AND ("taggings".taggable_type = 'LogBookEntry')) [0m
+Completed in 37ms (View: 23, DB: 3) | 200 OK [http://localhost/log_book_entries]
+
+
+Processing LogBookEntriesController#index (for 127.0.0.1 at 2010-03-16 13:56:26) [GET]
+  [4;35;1mLogBookEntry Load (1.1ms)[0m   [0mSELECT "log_book_entries".* FROM "log_book_entries" INNER JOIN "users" ON "users".id = "log_book_entries".user_id INNER JOIN "github_projects" ON "github_projects".id = "log_book_entries".github_project_id [0m
+Rendering template within layouts/log_book_entries
+Rendering log_book_entries/index
+  [4;36;1mUser Load (0.2ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 8) [0m
+  [4;35;1mGithubProject Load (0.2ms)[0m   [0mSELECT * FROM "github_projects" WHERE ("github_projects"."id" = 4) [0m
+  [4;36;1mTag Load (0.3ms)[0m   [0;1mSELECT "tags".* FROM "tags" INNER JOIN "taggings" ON "tags".id = "taggings".tag_id WHERE (("taggings".taggable_id = 4) AND ("taggings".taggable_type = 'LogBookEntry')) [0m
+  [4;35;1mUser Load (0.2ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 6) [0m
+  [4;36;1mGithubProject Load (0.2ms)[0m   [0;1mSELECT * FROM "github_projects" WHERE ("github_projects"."id" = 3) [0m
+  [4;35;1mTag Load (0.2ms)[0m   [0mSELECT "tags".* FROM "tags" INNER JOIN "taggings" ON "tags".id = "taggings".tag_id WHERE (("taggings".taggable_id = 6) AND ("taggings".taggable_type = 'LogBookEntry')) [0m
+  [4;36;1mUser Load (0.2ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 7) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "github_projects" WHERE ("github_projects"."id" = 3) [0m
+  [4;36;1mTag Load (0.2ms)[0m   [0;1mSELECT "tags".* FROM "tags" INNER JOIN "taggings" ON "tags".id = "taggings".tag_id WHERE (("taggings".taggable_id = 7) AND ("taggings".taggable_type = 'LogBookEntry')) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 7) [0m
+  [4;36;1mGithubProject Load (0.2ms)[0m   [0;1mSELECT * FROM "github_projects" WHERE ("github_projects"."id" = 2) [0m
+  [4;35;1mTag Load (0.2ms)[0m   [0mSELECT "tags".* FROM "tags" INNER JOIN "taggings" ON "tags".id = "taggings".tag_id WHERE (("taggings".taggable_id = 8) AND ("taggings".taggable_type = 'LogBookEntry')) [0m
+Completed in 37ms (View: 24, DB: 3) | 200 OK [http://localhost/log_book_entries]
+
+
+Processing LogBookEntriesController#new (for 127.0.0.1 at 2010-03-16 13:56:34) [GET]
+  [4;36;1mGithubProject Load (0.9ms)[0m   [0;1mSELECT * FROM "github_projects" ORDER BY title[0m
+  [4;35;1mUser Load (0.8ms)[0m   [0mSELECT * FROM "users" ORDER BY name[0m
+Rendering template within layouts/log_book_entries
+Rendering log_book_entries/new
+Completed in 50ms (View: 30, DB: 2) | 200 OK [http://localhost/log_book_entries/new]
+
+
+Processing LogBookEntriesController#index (for 127.0.0.1 at 2010-03-16 15:21:38) [GET]
+  [4;36;1mLogBookEntry Load (0.9ms)[0m   [0;1mSELECT "log_book_entries".* FROM "log_book_entries" INNER JOIN "users" ON "users".id = "log_book_entries".user_id INNER JOIN "github_projects" ON "github_projects".id = "log_book_entries".github_project_id [0m
+Rendering template within layouts/log_book_entries
+Rendering log_book_entries/index
+  [4;35;1mUser Load (0.3ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 8) [0m
+  [4;36;1mGithubProject Load (0.3ms)[0m   [0;1mSELECT * FROM "github_projects" WHERE ("github_projects"."id" = 4) [0m
+  [4;35;1mTag Load (0.4ms)[0m   [0mSELECT "tags".* FROM "tags" INNER JOIN "taggings" ON "tags".id = "taggings".tag_id WHERE (("taggings".taggable_id = 4) AND ("taggings".taggable_type = 'LogBookEntry')) [0m
+  [4;36;1mUser Load (0.3ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 6) [0m
+  [4;35;1mGithubProject Load (0.2ms)[0m   [0mSELECT * FROM "github_projects" WHERE ("github_projects"."id" = 3) [0m
+  [4;36;1mTag Load (0.3ms)[0m   [0;1mSELECT "tags".* FROM "tags" INNER JOIN "taggings" ON "tags".id = "taggings".tag_id WHERE (("taggings".taggable_id = 6) AND ("taggings".taggable_type = 'LogBookEntry')) [0m
+  [4;35;1mUser Load (0.3ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 7) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "github_projects" WHERE ("github_projects"."id" = 3) [0m
+  [4;35;1mTag Load (0.3ms)[0m   [0mSELECT "tags".* FROM "tags" INNER JOIN "taggings" ON "tags".id = "taggings".tag_id WHERE (("taggings".taggable_id = 7) AND ("taggings".taggable_type = 'LogBookEntry')) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 7) [0m
+  [4;35;1mGithubProject Load (0.3ms)[0m   [0mSELECT * FROM "github_projects" WHERE ("github_projects"."id" = 2) [0m
+  [4;36;1mTag Load (0.3ms)[0m   [0;1mSELECT "tags".* FROM "tags" INNER JOIN "taggings" ON "tags".id = "taggings".tag_id WHERE (("taggings".taggable_id = 8) AND ("taggings".taggable_type = 'LogBookEntry')) [0m
+Completed in 44ms (View: 27, DB: 4) | 200 OK [http://localhost/log_book_entries]
+
+
+Processing LogBookEntriesController#index (for 127.0.0.1 at 2010-03-18 10:28:44) [GET]
+  [4;36;1mLogBookEntry Load (19.5ms)[0m   [0;1mSELECT "log_book_entries".* FROM "log_book_entries" INNER JOIN "users" ON "users".id = "log_book_entries".user_id INNER JOIN "github_projects" ON "github_projects".id = "log_book_entries".github_project_id [0m
+Rendering template within layouts/log_book_entries
+Rendering log_book_entries/index
+  [4;35;1mUser Load (0.2ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 8) [0m
+  [4;36;1mGithubProject Load (0.2ms)[0m   [0;1mSELECT * FROM "github_projects" WHERE ("github_projects"."id" = 4) [0m
+  [4;35;1mTag Load (10.9ms)[0m   [0mSELECT "tags".* FROM "tags" INNER JOIN "taggings" ON "tags".id = "taggings".tag_id WHERE (("taggings".taggable_id = 4) AND ("taggings".taggable_type = 'LogBookEntry')) [0m
+  [4;36;1mUser Load (0.3ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 6) [0m
+  [4;35;1mGithubProject Load (0.2ms)[0m   [0mSELECT * FROM "github_projects" WHERE ("github_projects"."id" = 3) [0m
+  [4;36;1mTag Load (0.3ms)[0m   [0;1mSELECT "tags".* FROM "tags" INNER JOIN "taggings" ON "tags".id = "taggings".tag_id WHERE (("taggings".taggable_id = 6) AND ("taggings".taggable_type = 'LogBookEntry')) [0m
+  [4;35;1mUser Load (0.3ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 7) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "github_projects" WHERE ("github_projects"."id" = 3) [0m
+  [4;35;1mTag Load (0.4ms)[0m   [0mSELECT "tags".* FROM "tags" INNER JOIN "taggings" ON "tags".id = "taggings".tag_id WHERE (("taggings".taggable_id = 7) AND ("taggings".taggable_type = 'LogBookEntry')) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 7) [0m
+  [4;35;1mGithubProject Load (0.3ms)[0m   [0mSELECT * FROM "github_projects" WHERE ("github_projects"."id" = 2) [0m
+  [4;36;1mTag Load (0.3ms)[0m   [0;1mSELECT "tags".* FROM "tags" INNER JOIN "taggings" ON "tags".id = "taggings".tag_id WHERE (("taggings".taggable_id = 8) AND ("taggings".taggable_type = 'LogBookEntry')) [0m
+Completed in 661ms (View: 539, DB: 33) | 200 OK [http://localhost/log_book_entries]
+
+
+Processing LogBookEntriesController#index (for 127.0.0.1 at 2010-03-18 10:32:12) [GET]
+  Parameters: {"order"=>"log_book_entries.title"}
+  [4;35;1mLogBookEntry Load (1.5ms)[0m   [0mSELECT "log_book_entries".* FROM "log_book_entries" INNER JOIN "users" ON "users".id = "log_book_entries".user_id INNER JOIN "github_projects" ON "github_projects".id = "log_book_entries".github_project_id ORDER BY log_book_entries.title[0m
+Rendering template within layouts/log_book_entries
+Rendering log_book_entries/index
+  [4;36;1mUser Load (0.3ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 6) [0m
+  [4;35;1mGithubProject Load (0.2ms)[0m   [0mSELECT * FROM "github_projects" WHERE ("github_projects"."id" = 3) [0m
+  [4;36;1mTag Load (0.3ms)[0m   [0;1mSELECT "tags".* FROM "tags" INNER JOIN "taggings" ON "tags".id = "taggings".tag_id WHERE (("taggings".taggable_id = 6) AND ("taggings".taggable_type = 'LogBookEntry')) [0m
+  [4;35;1mUser Load (0.2ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 7) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "github_projects" WHERE ("github_projects"."id" = 3) [0m
+  [4;35;1mTag Load (0.3ms)[0m   [0mSELECT "tags".* FROM "tags" INNER JOIN "taggings" ON "tags".id = "taggings".tag_id WHERE (("taggings".taggable_id = 7) AND ("taggings".taggable_type = 'LogBookEntry')) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 7) [0m
+  [4;35;1mGithubProject Load (0.2ms)[0m   [0mSELECT * FROM "github_projects" WHERE ("github_projects"."id" = 2) [0m
+  [4;36;1mTag Load (0.3ms)[0m   [0;1mSELECT "tags".* FROM "tags" INNER JOIN "taggings" ON "tags".id = "taggings".tag_id WHERE (("taggings".taggable_id = 8) AND ("taggings".taggable_type = 'LogBookEntry')) [0m
+  [4;35;1mUser Load (0.3ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 8) [0m
+  [4;36;1mGithubProject Load (0.4ms)[0m   [0;1mSELECT * FROM "github_projects" WHERE ("github_projects"."id" = 4) [0m
+  [4;35;1mTag Load (0.3ms)[0m   [0mSELECT "tags".* FROM "tags" INNER JOIN "taggings" ON "tags".id = "taggings".tag_id WHERE (("taggings".taggable_id = 4) AND ("taggings".taggable_type = 'LogBookEntry')) [0m
+Completed in 93ms (View: 75, DB: 4) | 200 OK [http://localhost/log_book_entries?order=log_book_entries.title]
+
+
+Processing LogBookEntriesController#index (for 127.0.0.1 at 2010-03-18 10:32:12) [GET]
+  Parameters: {"order"=>"log_book_entries.title"}
+  [4;36;1mLogBookEntry Load (1.3ms)[0m   [0;1mSELECT "log_book_entries".* FROM "log_book_entries" INNER JOIN "users" ON "users".id = "log_book_entries".user_id INNER JOIN "github_projects" ON "github_projects".id = "log_book_entries".github_project_id ORDER BY log_book_entries.title[0m
+Rendering template within layouts/log_book_entries
+Rendering log_book_entries/index
+  [4;35;1mUser Load (0.4ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 6) [0m
+  [4;36;1mGithubProject Load (0.6ms)[0m   [0;1mSELECT * FROM "github_projects" WHERE ("github_projects"."id" = 3) [0m
+  [4;35;1mTag Load (0.4ms)[0m   [0mSELECT "tags".* FROM "tags" INNER JOIN "taggings" ON "tags".id = "taggings".tag_id WHERE (("taggings".taggable_id = 6) AND ("taggings".taggable_type = 'LogBookEntry')) [0m
+  [4;36;1mUser Load (0.3ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 7) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "github_projects" WHERE ("github_projects"."id" = 3) [0m
+  [4;36;1mTag Load (0.3ms)[0m   [0;1mSELECT "tags".* FROM "tags" INNER JOIN "taggings" ON "tags".id = "taggings".tag_id WHERE (("taggings".taggable_id = 7) AND ("taggings".taggable_type = 'LogBookEntry')) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 7) [0m
+  [4;36;1mGithubProject Load (0.2ms)[0m   [0;1mSELECT * FROM "github_projects" WHERE ("github_projects"."id" = 2) [0m
+  [4;35;1mTag Load (0.3ms)[0m   [0mSELECT "tags".* FROM "tags" INNER JOIN "taggings" ON "tags".id = "taggings".tag_id WHERE (("taggings".taggable_id = 8) AND ("taggings".taggable_type = 'LogBookEntry')) [0m
+  [4;36;1mUser Load (0.3ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 8) [0m
+  [4;35;1mGithubProject Load (0.2ms)[0m   [0mSELECT * FROM "github_projects" WHERE ("github_projects"."id" = 4) [0m
+  [4;36;1mTag Load (0.3ms)[0m   [0;1mSELECT "tags".* FROM "tags" INNER JOIN "taggings" ON "tags".id = "taggings".tag_id WHERE (("taggings".taggable_id = 4) AND ("taggings".taggable_type = 'LogBookEntry')) [0m
+Completed in 90ms (View: 76, DB: 5) | 200 OK [http://localhost/log_book_entries?order=log_book_entries.title]
+
+
+Processing LogBookEntriesController#index (for 127.0.0.1 at 2010-03-18 10:32:13) [GET]
+  Parameters: {"order"=>"description"}
+  [4;35;1mLogBookEntry Load (1.3ms)[0m   [0mSELECT "log_book_entries".* FROM "log_book_entries" INNER JOIN "users" ON "users".id = "log_book_entries".user_id INNER JOIN "github_projects" ON "github_projects".id = "log_book_entries".github_project_id ORDER BY description[0m
+Rendering template within layouts/log_book_entries
+Rendering log_book_entries/index
+  [4;36;1mUser Load (0.2ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 6) [0m
+  [4;35;1mGithubProject Load (0.2ms)[0m   [0mSELECT * FROM "github_projects" WHERE ("github_projects"."id" = 3) [0m
+  [4;36;1mTag Load (0.4ms)[0m   [0;1mSELECT "tags".* FROM "tags" INNER JOIN "taggings" ON "tags".id = "taggings".tag_id WHERE (("taggings".taggable_id = 6) AND ("taggings".taggable_type = 'LogBookEntry')) [0m
+  [4;35;1mUser Load (0.3ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 8) [0m
+  [4;36;1mGithubProject Load (0.2ms)[0m   [0;1mSELECT * FROM "github_projects" WHERE ("github_projects"."id" = 4) [0m
+  [4;35;1mTag Load (0.3ms)[0m   [0mSELECT "tags".* FROM "tags" INNER JOIN "taggings" ON "tags".id = "taggings".tag_id WHERE (("taggings".taggable_id = 4) AND ("taggings".taggable_type = 'LogBookEntry')) [0m
+  [4;36;1mUser Load (0.3ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 7) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "github_projects" WHERE ("github_projects"."id" = 3) [0m
+  [4;36;1mTag Load (0.3ms)[0m   [0;1mSELECT "tags".* FROM "tags" INNER JOIN "taggings" ON "tags".id = "taggings".tag_id WHERE (("taggings".taggable_id = 7) AND ("taggings".taggable_type = 'LogBookEntry')) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 7) [0m
+  [4;36;1mGithubProject Load (0.2ms)[0m   [0;1mSELECT * FROM "github_projects" WHERE ("github_projects"."id" = 2) [0m
+  [4;35;1mTag Load (0.3ms)[0m   [0mSELECT "tags".* FROM "tags" INNER JOIN "taggings" ON "tags".id = "taggings".tag_id WHERE (("taggings".taggable_id = 8) AND ("taggings".taggable_type = 'LogBookEntry')) [0m
+Completed in 92ms (View: 78, DB: 4) | 200 OK [http://localhost/log_book_entries?order=description]
+
+
+Processing LogBookEntriesController#index (for 127.0.0.1 at 2010-03-18 10:32:14) [GET]
+  Parameters: {"order"=>"solution"}
+  [4;36;1mLogBookEntry Load (1.3ms)[0m   [0;1mSELECT "log_book_entries".* FROM "log_book_entries" INNER JOIN "users" ON "users".id = "log_book_entries".user_id INNER JOIN "github_projects" ON "github_projects".id = "log_book_entries".github_project_id ORDER BY solution[0m
+Rendering template within layouts/log_book_entries
+Rendering log_book_entries/index
+  [4;35;1mUser Load (0.2ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 6) [0m
+  [4;36;1mGithubProject Load (0.2ms)[0m   [0;1mSELECT * FROM "github_projects" WHERE ("github_projects"."id" = 3) [0m
+  [4;35;1mTag Load (0.3ms)[0m   [0mSELECT "tags".* FROM "tags" INNER JOIN "taggings" ON "tags".id = "taggings".tag_id WHERE (("taggings".taggable_id = 6) AND ("taggings".taggable_type = 'LogBookEntry')) [0m
+  [4;36;1mUser Load (0.2ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 7) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "github_projects" WHERE ("github_projects"."id" = 3) [0m
+  [4;36;1mTag Load (0.3ms)[0m   [0;1mSELECT "tags".* FROM "tags" INNER JOIN "taggings" ON "tags".id = "taggings".tag_id WHERE (("taggings".taggable_id = 7) AND ("taggings".taggable_type = 'LogBookEntry')) [0m
+  [4;35;1mUser Load (0.2ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 8) [0m
+  [4;36;1mGithubProject Load (0.2ms)[0m   [0;1mSELECT * FROM "github_projects" WHERE ("github_projects"."id" = 4) [0m
+  [4;35;1mTag Load (0.3ms)[0m   [0mSELECT "tags".* FROM "tags" INNER JOIN "taggings" ON "tags".id = "taggings".tag_id WHERE (("taggings".taggable_id = 4) AND ("taggings".taggable_type = 'LogBookEntry')) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 7) [0m
+  [4;35;1mGithubProject Load (0.5ms)[0m   [0mSELECT * FROM "github_projects" WHERE ("github_projects"."id" = 2) [0m
+  [4;36;1mTag Load (0.4ms)[0m   [0;1mSELECT "tags".* FROM "tags" INNER JOIN "taggings" ON "tags".id = "taggings".tag_id WHERE (("taggings".taggable_id = 8) AND ("taggings".taggable_type = 'LogBookEntry')) [0m
+Completed in 91ms (View: 76, DB: 4) | 200 OK [http://localhost/log_book_entries?order=solution]
+
+
+Processing LogBookEntriesController#index (for 127.0.0.1 at 2010-03-18 10:32:15) [GET]
+  Parameters: {"order"=>"users.name"}
+  [4;35;1mLogBookEntry Load (1.3ms)[0m   [0mSELECT "log_book_entries".* FROM "log_book_entries" INNER JOIN "users" ON "users".id = "log_book_entries".user_id INNER JOIN "github_projects" ON "github_projects".id = "log_book_entries".github_project_id ORDER BY users.name[0m
+Rendering template within layouts/log_book_entries
+Rendering log_book_entries/index
+  [4;36;1mUser Load (0.2ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 6) [0m
+  [4;35;1mGithubProject Load (0.3ms)[0m   [0mSELECT * FROM "github_projects" WHERE ("github_projects"."id" = 3) [0m
+  [4;36;1mTag Load (0.3ms)[0m   [0;1mSELECT "tags".* FROM "tags" INNER JOIN "taggings" ON "tags".id = "taggings".tag_id WHERE (("taggings".taggable_id = 6) AND ("taggings".taggable_type = 'LogBookEntry')) [0m
+  [4;35;1mUser Load (0.3ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 7) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "github_projects" WHERE ("github_projects"."id" = 3) [0m
+  [4;35;1mTag Load (0.3ms)[0m   [0mSELECT "tags".* FROM "tags" INNER JOIN "taggings" ON "tags".id = "taggings".tag_id WHERE (("taggings".taggable_id = 7) AND ("taggings".taggable_type = 'LogBookEntry')) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 7) [0m
+  [4;35;1mGithubProject Load (0.2ms)[0m   [0mSELECT * FROM "github_projects" WHERE ("github_projects"."id" = 2) [0m
+  [4;36;1mTag Load (0.3ms)[0m   [0;1mSELECT "tags".* FROM "tags" INNER JOIN "taggings" ON "tags".id = "taggings".tag_id WHERE (("taggings".taggable_id = 8) AND ("taggings".taggable_type = 'LogBookEntry')) [0m
+  [4;35;1mUser Load (0.2ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 8) [0m
+  [4;36;1mGithubProject Load (0.2ms)[0m   [0;1mSELECT * FROM "github_projects" WHERE ("github_projects"."id" = 4) [0m
+  [4;35;1mTag Load (0.2ms)[0m   [0mSELECT "tags".* FROM "tags" INNER JOIN "taggings" ON "tags".id = "taggings".tag_id WHERE (("taggings".taggable_id = 4) AND ("taggings".taggable_type = 'LogBookEntry')) [0m
+Completed in 88ms (View: 74, DB: 4) | 200 OK [http://localhost/log_book_entries?order=users.name]
+
+
+Processing LogBookEntriesController#index (for 127.0.0.1 at 2010-03-18 10:32:16) [GET]
+  Parameters: {"order"=>"sha_of_problem"}
+  [4;36;1mLogBookEntry Load (1.7ms)[0m   [0;1mSELECT "log_book_entries".* FROM "log_book_entries" INNER JOIN "users" ON "users".id = "log_book_entries".user_id INNER JOIN "github_projects" ON "github_projects".id = "log_book_entries".github_project_id ORDER BY sha_of_problem[0m
+Rendering template within layouts/log_book_entries
+Rendering log_book_entries/index
+  [4;35;1mUser Load (0.2ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 8) [0m
+  [4;36;1mGithubProject Load (0.2ms)[0m   [0;1mSELECT * FROM "github_projects" WHERE ("github_projects"."id" = 4) [0m
+  [4;35;1mTag Load (0.4ms)[0m   [0mSELECT "tags".* FROM "tags" INNER JOIN "taggings" ON "tags".id = "taggings".tag_id WHERE (("taggings".taggable_id = 4) AND ("taggings".taggable_type = 'LogBookEntry')) [0m
+  [4;36;1mUser Load (0.3ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 7) [0m
+  [4;35;1mGithubProject Load (0.2ms)[0m   [0mSELECT * FROM "github_projects" WHERE ("github_projects"."id" = 3) [0m
+  [4;36;1mTag Load (0.3ms)[0m   [0;1mSELECT "tags".* FROM "tags" INNER JOIN "taggings" ON "tags".id = "taggings".tag_id WHERE (("taggings".taggable_id = 7) AND ("taggings".taggable_type = 'LogBookEntry')) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 7) [0m
+  [4;36;1mGithubProject Load (0.2ms)[0m   [0;1mSELECT * FROM "github_projects" WHERE ("github_projects"."id" = 2) [0m
+  [4;35;1mTag Load (0.3ms)[0m   [0mSELECT "tags".* FROM "tags" INNER JOIN "taggings" ON "tags".id = "taggings".tag_id WHERE (("taggings".taggable_id = 8) AND ("taggings".taggable_type = 'LogBookEntry')) [0m
+  [4;36;1mUser Load (0.2ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 6) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "github_projects" WHERE ("github_projects"."id" = 3) [0m
+  [4;36;1mTag Load (0.3ms)[0m   [0;1mSELECT "tags".* FROM "tags" INNER JOIN "taggings" ON "tags".id = "taggings".tag_id WHERE (("taggings".taggable_id = 6) AND ("taggings".taggable_type = 'LogBookEntry')) [0m
+Completed in 96ms (View: 77, DB: 4) | 200 OK [http://localhost/log_book_entries?order=sha_of_problem]
+
+
+Processing LogBookEntriesController#index (for 127.0.0.1 at 2010-03-18 10:32:17) [GET]
+  Parameters: {"order"=>"sha_of_solution"}
+  [4;35;1mLogBookEntry Load (1.2ms)[0m   [0mSELECT "log_book_entries".* FROM "log_book_entries" INNER JOIN "users" ON "users".id = "log_book_entries".user_id INNER JOIN "github_projects" ON "github_projects".id = "log_book_entries".github_project_id ORDER BY sha_of_solution[0m
+Rendering template within layouts/log_book_entries
+Rendering log_book_entries/index
+  [4;36;1mUser Load (0.2ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 8) [0m
+  [4;35;1mGithubProject Load (0.2ms)[0m   [0mSELECT * FROM "github_projects" WHERE ("github_projects"."id" = 4) [0m
+  [4;36;1mTag Load (0.3ms)[0m   [0;1mSELECT "tags".* FROM "tags" INNER JOIN "taggings" ON "tags".id = "taggings".tag_id WHERE (("taggings".taggable_id = 4) AND ("taggings".taggable_type = 'LogBookEntry')) [0m
+  [4;35;1mUser Load (0.2ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 7) [0m
+  [4;36;1mGithubProject Load (0.2ms)[0m   [0;1mSELECT * FROM "github_projects" WHERE ("github_projects"."id" = 3) [0m
+  [4;35;1mTag Load (0.3ms)[0m   [0mSELECT "tags".* FROM "tags" INNER JOIN "taggings" ON "tags".id = "taggings".tag_id WHERE (("taggings".taggable_id = 7) AND ("taggings".taggable_type = 'LogBookEntry')) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 7) [0m
+  [4;35;1mGithubProject Load (0.2ms)[0m   [0mSELECT * FROM "github_projects" WHERE ("github_projects"."id" = 2) [0m
+  [4;36;1mTag Load (0.3ms)[0m   [0;1mSELECT "tags".* FROM "tags" INNER JOIN "taggings" ON "tags".id = "taggings".tag_id WHERE (("taggings".taggable_id = 8) AND ("taggings".taggable_type = 'LogBookEntry')) [0m
+  [4;35;1mUser Load (0.2ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 6) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "github_projects" WHERE ("github_projects"."id" = 3) [0m
+  [4;35;1mTag Load (0.3ms)[0m   [0mSELECT "tags".* FROM "tags" INNER JOIN "taggings" ON "tags".id = "taggings".tag_id WHERE (("taggings".taggable_id = 6) AND ("taggings".taggable_type = 'LogBookEntry')) [0m
+Completed in 88ms (View: 74, DB: 4) | 200 OK [http://localhost/log_book_entries?order=sha_of_solution]
+
+
+Processing LogBookEntriesController#index (for 127.0.0.1 at 2010-03-18 10:32:19) [GET]
+  Parameters: {"order"=>"github_projects.title"}
+  [4;36;1mLogBookEntry Load (1.3ms)[0m   [0;1mSELECT "log_book_entries".* FROM "log_book_entries" INNER JOIN "users" ON "users".id = "log_book_entries".user_id INNER JOIN "github_projects" ON "github_projects".id = "log_book_entries".github_project_id ORDER BY github_projects.title[0m
+Rendering template within layouts/log_book_entries
+Rendering log_book_entries/index
+  [4;35;1mUser Load (0.2ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 6) [0m
+  [4;36;1mGithubProject Load (0.2ms)[0m   [0;1mSELECT * FROM "github_projects" WHERE ("github_projects"."id" = 3) [0m
+  [4;35;1mTag Load (0.3ms)[0m   [0mSELECT "tags".* FROM "tags" INNER JOIN "taggings" ON "tags".id = "taggings".tag_id WHERE (("taggings".taggable_id = 6) AND ("taggings".taggable_type = 'LogBookEntry')) [0m
+  [4;36;1mUser Load (0.3ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 7) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "github_projects" WHERE ("github_projects"."id" = 3) [0m
+  [4;36;1mTag Load (0.3ms)[0m   [0;1mSELECT "tags".* FROM "tags" INNER JOIN "taggings" ON "tags".id = "taggings".tag_id WHERE (("taggings".taggable_id = 7) AND ("taggings".taggable_type = 'LogBookEntry')) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 7) [0m
+  [4;36;1mGithubProject Load (0.2ms)[0m   [0;1mSELECT * FROM "github_projects" WHERE ("github_projects"."id" = 2) [0m
+  [4;35;1mTag Load (0.3ms)[0m   [0mSELECT "tags".* FROM "tags" INNER JOIN "taggings" ON "tags".id = "taggings".tag_id WHERE (("taggings".taggable_id = 8) AND ("taggings".taggable_type = 'LogBookEntry')) [0m
+  [4;36;1mUser Load (0.3ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 8) [0m
+  [4;35;1mGithubProject Load (0.3ms)[0m   [0mSELECT * FROM "github_projects" WHERE ("github_projects"."id" = 4) [0m
+  [4;36;1mTag Load (0.3ms)[0m   [0;1mSELECT "tags".* FROM "tags" INNER JOIN "taggings" ON "tags".id = "taggings".tag_id WHERE (("taggings".taggable_id = 4) AND ("taggings".taggable_type = 'LogBookEntry')) [0m
+Completed in 89ms (View: 75, DB: 4) | 200 OK [http://localhost/log_book_entries?order=github_projects.title]
+
+
+Processing LogBookEntriesController#index (for 127.0.0.1 at 2010-03-18 10:32:21) [GET]
+  Parameters: {"order"=>"log_book_entries.updated_at"}
+  [4;35;1mLogBookEntry Load (1.3ms)[0m   [0mSELECT "log_book_entries".* FROM "log_book_entries" INNER JOIN "users" ON "users".id = "log_book_entries".user_id INNER JOIN "github_projects" ON "github_projects".id = "log_book_entries".github_project_id ORDER BY log_book_entries.updated_at[0m
+Rendering template within layouts/log_book_entries
+Rendering log_book_entries/index
+  [4;36;1mUser Load (0.2ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 7) [0m
+  [4;35;1mGithubProject Load (0.2ms)[0m   [0mSELECT * FROM "github_projects" WHERE ("github_projects"."id" = 3) [0m
+  [4;36;1mTag Load (0.4ms)[0m   [0;1mSELECT "tags".* FROM "tags" INNER JOIN "taggings" ON "tags".id = "taggings".tag_id WHERE (("taggings".taggable_id = 7) AND ("taggings".taggable_type = 'LogBookEntry')) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 7) [0m
+  [4;36;1mGithubProject Load (0.3ms)[0m   [0;1mSELECT * FROM "github_projects" WHERE ("github_projects"."id" = 2) [0m
+  [4;35;1mTag Load (0.3ms)[0m   [0mSELECT "tags".* FROM "tags" INNER JOIN "taggings" ON "tags".id = "taggings".tag_id WHERE (("taggings".taggable_id = 8) AND ("taggings".taggable_type = 'LogBookEntry')) [0m
+  [4;36;1mUser Load (0.3ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 8) [0m
+  [4;35;1mGithubProject Load (0.2ms)[0m   [0mSELECT * FROM "github_projects" WHERE ("github_projects"."id" = 4) [0m
+  [4;36;1mTag Load (0.3ms)[0m   [0;1mSELECT "tags".* FROM "tags" INNER JOIN "taggings" ON "tags".id = "taggings".tag_id WHERE (("taggings".taggable_id = 4) AND ("taggings".taggable_type = 'LogBookEntry')) [0m
+  [4;35;1mUser Load (0.3ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 6) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "github_projects" WHERE ("github_projects"."id" = 3) [0m
+  [4;35;1mTag Load (0.4ms)[0m   [0mSELECT "tags".* FROM "tags" INNER JOIN "taggings" ON "tags".id = "taggings".tag_id WHERE (("taggings".taggable_id = 6) AND ("taggings".taggable_type = 'LogBookEntry')) [0m
+Completed in 92ms (View: 77, DB: 4) | 200 OK [http://localhost/log_book_entries?order=log_book_entries.updated_at]
+
+
+Processing LogBookEntriesController#index (for 127.0.0.1 at 2010-03-18 10:32:23) [GET]
+  Parameters: {"order"=>"log_book_entries.created_at"}
+  [4;36;1mLogBookEntry Load (1.3ms)[0m   [0;1mSELECT "log_book_entries".* FROM "log_book_entries" INNER JOIN "users" ON "users".id = "log_book_entries".user_id INNER JOIN "github_projects" ON "github_projects".id = "log_book_entries".github_project_id ORDER BY log_book_entries.created_at[0m
+Rendering template within layouts/log_book_entries
+Rendering log_book_entries/index
+  [4;35;1mUser Load (0.2ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 8) [0m
+  [4;36;1mGithubProject Load (0.2ms)[0m   [0;1mSELECT * FROM "github_projects" WHERE ("github_projects"."id" = 4) [0m
+  [4;35;1mTag Load (0.3ms)[0m   [0mSELECT "tags".* FROM "tags" INNER JOIN "taggings" ON "tags".id = "taggings".tag_id WHERE (("taggings".taggable_id = 4) AND ("taggings".taggable_type = 'LogBookEntry')) [0m
+  [4;36;1mUser Load (0.3ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 6) [0m
+  [4;35;1mGithubProject Load (0.2ms)[0m   [0mSELECT * FROM "github_projects" WHERE ("github_projects"."id" = 3) [0m
+  [4;36;1mTag Load (0.3ms)[0m   [0;1mSELECT "tags".* FROM "tags" INNER JOIN "taggings" ON "tags".id = "taggings".tag_id WHERE (("taggings".taggable_id = 6) AND ("taggings".taggable_type = 'LogBookEntry')) [0m
+  [4;35;1mUser Load (0.3ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 7) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "github_projects" WHERE ("github_projects"."id" = 3) [0m
+  [4;35;1mTag Load (0.3ms)[0m   [0mSELECT "tags".* FROM "tags" INNER JOIN "taggings" ON "tags".id = "taggings".tag_id WHERE (("taggings".taggable_id = 7) AND ("taggings".taggable_type = 'LogBookEntry')) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 7) [0m
+  [4;35;1mGithubProject Load (0.3ms)[0m   [0mSELECT * FROM "github_projects" WHERE ("github_projects"."id" = 2) [0m
+  [4;36;1mTag Load (0.3ms)[0m   [0;1mSELECT "tags".* FROM "tags" INNER JOIN "taggings" ON "tags".id = "taggings".tag_id WHERE (("taggings".taggable_id = 8) AND ("taggings".taggable_type = 'LogBookEntry')) [0m
+Completed in 131ms (View: 76, DB: 4) | 200 OK [http://localhost/log_book_entries?order=log_book_entries.created_at]
