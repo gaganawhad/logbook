@@ -23,7 +23,7 @@
     <td><%=h log_book_entry.sha_of_problem %></td>
     <td><%=h log_book_entry.sha_of_solution %></td>
     <td><%=h log_book_entry.github_project.title %></td>
-    <td><% log_book_entry.tag_list.each do |tag| %>
+    <td><% log_book_entry.tag_list.sort!.each do |tag| %>
         <%= link_to tag, :action => "label", :controller => "search", :tag=>tag%>
         <% end %>
     </td>

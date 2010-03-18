@@ -24,7 +24,7 @@
     <td><%=h matched_entry.sha_of_problem %></td>
     <td><%=h matched_entry.sha_of_solution %></td>
     <td><%=h matched_entry.github_project.title %></td>
-    <td><% matched_entry.tag_list.each do |tag| %>
+    <td><% matched_entry.tag_list.sort!.each do |tag| %>
         <%= link_to tag, :action => "label", :tag=>tag%>
         <% end %>
     </td>
