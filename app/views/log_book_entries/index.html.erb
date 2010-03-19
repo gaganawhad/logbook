@@ -6,8 +6,8 @@
     <th><%= link_to 'Description', log_book_entries_path(:order => 'description') %> </th>
     <th><%= link_to 'Solution', log_book_entries_path(:order => 'solution') %> </th>
     <th><%= link_to 'User name', log_book_entries_path(:order => 'users.name') %> </th>
-    <th><%= link_to 'SHA of Problem', log_book_entries_path(:order => 'sha_of_problem') %> </th>
-    <th><%= link_to 'SHA of Solution', log_book_entries_path(:order => 'sha_of_solution') %> </th>
+    <th> SHA of Problem </th>
+    <th> SHA of Solution </th>
     <th><%= link_to 'Github Project', log_book_entries_path(:order => 'github_projects.title') %> </th>
     <th> Tags </th>
     <th><%= link_to 'Created At', log_book_entries_path(:order => 'log_book_entries.updated_at') %> </th>
@@ -20,8 +20,8 @@
     <td><%=h log_book_entry.description %></td>
     <td><%=h log_book_entry.solution %></td>
     <td><%=h log_book_entry.user.name %></td>
-    <td><%= link_to "click here", "http://github.com/desiringgod/" + log_book_entry.github_project.title + "/commit/" + log_book_entry.sha_of_problem %></td>
-    <td><%= link_to "click here", "http://github.com/desiringgod/" + log_book_entry.github_project.title + "/commit/" + log_book_entry.sha_of_solution %></td>
+    <td><%= link_to log_book_entry.sha_of_problem,  "http://github.com/desiringgod/" + log_book_entry.github_project.title + "/commit/" + log_book_entry.sha_of_problem %></td>
+    <td><%= link_to log_book_entry.sha_of_solution,  "http://github.com/desiringgod/" + log_book_entry.github_project.title + "/commit/" + log_book_entry.sha_of_solution %></td>
     <td><%= link_to log_book_entry.github_project.title, "http://github.com/desiringgod/" + log_book_entry.github_project.title %></td>
     <td><% log_book_entry.tag_list.sort!.each do |tag| %>
         <%= link_to tag, :action => "label", :controller => "search", :tag=>tag %>

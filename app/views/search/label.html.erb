@@ -8,8 +8,8 @@
     <th><%= link_to 'Description',  :action=>'label', :tag => @tag, :order => 'description' %> </th>
     <th><%= link_to 'Solution',  :action=>'label',  :tag => @tag, :order => 'solution' %> </th>
     <th><%= link_to 'User name',   :action=>'label', :tag => @tag, :order => 'users.name' %> </th>
-    <th><%= link_to 'SHA of Problem',  :action=>'label',  :tag => @tag, :order => 'sha_of_problem' %> </th>
-    <th><%= link_to 'SHA of Solution',   :action=>'label', :tag => @tag, :order => 'sha_of_solution' %> </th>
+    <th> SHA of Problem </th>
+    <th> SHA of Solution </th>
     <th><%= link_to 'Github Project',  :action=>'label', :tag => @tag, :order => 'github_projects.title' %> </th>
     <th> Tags </th>
     <th><%= link_to 'Created At', :action=>'label', :tag => @tag, :order => 'log_book_entries.updated_at' %> </th>
@@ -21,8 +21,8 @@
     <td><%=h matched_entry.description %></td>
     <td><%=h matched_entry.solution %></td>
     <td><%=h matched_entry.user.name %></td>
-    <td><%= link_to "click here", "http://github.com/desiringgod/" + matched_entry.github_project.title + "/commit/" + matched_entry.sha_of_problem %></td>
-    <td><%= link_to "click here", "http://github.com/desiringgod/" + matched_entry.github_project.title + "/commit/" + matched_entry.sha_of_solution %></td>
+    <td><%= link_to matched_entry.sha_of_problem, "http://github.com/desiringgod/" + matched_entry.github_project.title + "/commit/" + matched_entry.sha_of_problem %></td>
+    <td><%= link_to matched_entry.sha_of_solution, "http://github.com/desiringgod/" + matched_entry.github_project.title + "/commit/" + matched_entry.sha_of_solution %></td>
     <td><%= link_to matched_entry.github_project.title, "http://github.com/desiringgod/" + matched_entry.github_project.title %></td>
 
     <td><% matched_entry.tag_list.sort!.each do |tag| %>

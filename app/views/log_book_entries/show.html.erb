@@ -20,12 +20,12 @@
 
 <p>
   <b>Sha of problem:</b>
-  <%= link_to "click here", "http://github.com/desiringgod/" + @log_book_entry.github_project.title + "/commit/" + @log_book_entry.sha_of_problem %>
+  <%= link_to @log_book_entry.sha_of_problem,  "http://github.com/desiringgod/" + @log_book_entry.github_project.title + "/commit/" + @log_book_entry.sha_of_problem %>
 </p>
 
 <p>
   <b>Sha of solution:</b>
-  <%= link_to "click here", "http://github.com/desiringgod/" + @log_book_entry.github_project.title + "/commit/" + @log_book_entry.sha_of_solution %>
+  <%= link_to @log_book_entry.sha_of_solution, "http://github.com/desiringgod/" + @log_book_entry.github_project.title + "/commit/" + @log_book_entry.sha_of_solution %>
 </p>
 
 <p>
