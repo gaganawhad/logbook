@@ -1,11 +1,13 @@
-<h1>Listing log_book_entries</h1>
-<% #form_for :query, :url => { :action => :query %>
-<%= text_field '', 'enter search query here' %>
-<table>
+<%= render :partial => "search/search_box" %> 
+<br/>
+<br/>
 
+<h1>Listing log_book_entries </h1>
+
+<table>
   <%= render :partial => "search/table", :locals => {:action => 'index', :tag=> nil, :table_entries => @log_book_entries } %>
 </table>
 
 <br />
 
-<%= link_to 'New log_book_entry', new_log_book_entry_path %>
+<%= link_to 'New Entry', new_log_book_entry_path %>

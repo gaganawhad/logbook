@@ -1,0 +1,18 @@
+<h1> Search Resuts 
+<% if @query %> 
+   for  '<%= @query  %>' </h1>
+<% else %>
+  </h1>
+  <br />
+  No string entered
+<% end%>
+
+<%= render :partial => "search_box" %> 
+
+<table>
+  <%= render :partial => "table", :locals => {:action => 'search', :tag => nil, :table_entries => @matched_entries } %>
+</table>
+
+<%= link_to 'All Entries', log_book_entries_path %>
+
+<br /> 
