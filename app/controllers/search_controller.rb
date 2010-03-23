@@ -2,6 +2,7 @@ class SearchController < ApplicationController
   def index
   end
   def label
+    #TODO: LogBookEntry.scoped(:order => :title, :joins => [:user, :github_project]).find_tagged_with('tag3')
     matched_ids = LogBookEntry.find_tagged_with(params[:tag]).collect {|e| e.id} 
     @matched_entries = LogBookEntry.find(matched_ids, :joins => [:user, :github_project], :order => params[:order]) 
     if params[:tag]
@@ -10,6 +11,7 @@ class SearchController < ApplicationController
   end
   
   def query
+    #TODO: implement LogBookEntry.find_by_query(params[:query]) in the model
     if params[:query]
 
       @query = params[:query]

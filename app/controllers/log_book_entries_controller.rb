@@ -2,7 +2,12 @@ class LogBookEntriesController < ApplicationController
   # get /log_book_entries
   # get /log_book_entries.xml
   def index
+    #TODO: Let me reverse the sort order
       @log_book_entries = LogBookEntry.find(:all, :joins => [:user, :github_project], :order => params[:order]) 
+
+    #TODO: write smart_date_printer view helper
+    #TODO: write print_github_commit_link view helper
+    #TODO: write print_github_project_link view helper
     
     respond_to do |format|
       format.html # index.html.erb
@@ -25,6 +30,7 @@ class LogBookEntriesController < ApplicationController
   # GET /log_book_entries/new.xml
   def new
     @log_book_entry = LogBookEntry.new
+    #TODO: Move these into models, and then use the model methods in the views
     @projects = GithubProject.find(:all, :order => "title").collect {|p| [p.title, p.id]} # the way they are aligned ie title first and id later, makes select show title in the view and not id. 
     @users = User.find(:all, :order => "name").collect {|u| [u.name, u.id]} # 
 
