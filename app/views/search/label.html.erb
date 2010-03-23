@@ -1,53 +1,11 @@
 <% if @tag %>
-<h1>Entries matching <%= @tag %> </h1>
+  <h1>Entries Matching <%= @tag %></h1>
 <% end %>
 
 <table>
-  <tr>
-    <th><%= link_to 'Title', :action=>'label', :tag => @tag, :order => 'log_book_entries.title' %> </th>
-    <th><%= link_to 'Description',  :action=>'label', :tag => @tag, :order => 'description' %> </th>
-    <th><%= link_to 'Solution',  :action=>'label',  :tag => @tag, :order => 'solution' %> </th>
-    <th><%= link_to 'User name',   :action=>'label', :tag => @tag, :order => 'users.name' %> </th>
-    <th> SHA of Problem </th>
-    <th> SHA of Solution </th>
-    <th><%= link_to 'Github Project',  :action=>'label', :tag => @tag, :order => 'github_projects.title' %> </th>
-    <th> Tags </th>
-    <th><%= link_to 'Created At', :action=>'label', :tag => @tag, :order => 'log_book_entries.updated_at' %> </th>
-    <th><%= link_to 'Updated At', :action=>'label', :tag => @tag, :order => 'log_book_entries.created_at' %> </th>
-
-<% @matched_entries.each do |matched_entry| %>
-  <tr>
-    <td><%=h matched_entry.title %></td>
-    <td><%=h matched_entry.description %></td>
-    <td><%=h matched_entry.solution %></td>
-    <td><%=h matched_entry.user.name %></td>
-    <td><%= link_to matched_entry.sha_of_problem, "http://github.com/desiringgod/" + matched_entry.github_project.title + "/commit/" + matched_entry.sha_of_problem %></td>
-    <td><%= link_to matched_entry.sha_of_solution, "http://github.com/desiringgod/" + matched_entry.github_project.title + "/commit/" + matched_entry.sha_of_solution %></td>
-    <td><%= link_to matched_entry.github_project.title, "http://github.com/desiringgod/" + matched_entry.github_project.title %></td>
-
-    <td><% matched_entry.tag_list.sort!.each do |tag| %>
-        <%= link_to tag, :action => "label", :tag=>tag%>
-        <% end %>
-    </td>
-    <td>
-      <% if matched_entry.created_at > 7.days.ago %>
-      <%=h matched_entry.created_at.strftime("%A, %H:%M ") %>
-      <% else %>
-      <%=h matched_entry.created_at.to_s(:long) %> 
-      <% end %>
-    </td>
-    <td>
-      <% if matched_entry.updated_at > 7.days.ago %>
-      <%=h matched_entry.updated_at.strftime("%A, %H:%M ") %> 
-      <% else %>
-      <%=h matched_entry.updated_at.to_s(:long) %> 
-      <% end %>
-    </td>
-    <td><%= link_to 'Show', matched_entry %></td>
-    <td><%= link_to 'Edit', edit_log_book_entry_path(matched_entry) %></td>
-    <td><%= link_to 'Destroy', matched_entry, :confirm => 'Are you sure?', :method => :delete %></td>
-  </tr>
-<% end %>
+  <%= render :partial => "table", :locals => {:action => 'label', :tag => @tag, :table_entries => @matched_entries } %>
 </table>
 
-<br />
+<%= link_to 'All Entries', log_book_entries_path %>
+
+<br /> 

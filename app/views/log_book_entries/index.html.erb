@@ -1,51 +1,9 @@
 <h1>Listing log_book_entries</h1>
-
+<% #form_for :query, :url => { :action => :query %>
+<%= text_field '', 'enter search query here' %>
 <table>
-  <tr>
-    <th><%= link_to 'Title', log_book_entries_path(:order => 'log_book_entries.title') %> </th>
-    <th><%= link_to 'Description', log_book_entries_path(:order => 'description') %> </th>
-    <th><%= link_to 'Solution', log_book_entries_path(:order => 'solution') %> </th>
-    <th><%= link_to 'User name', log_book_entries_path(:order => 'users.name') %> </th>
-    <th> SHA of Problem </th>
-    <th> SHA of Solution </th>
-    <th><%= link_to 'Github Project', log_book_entries_path(:order => 'github_projects.title') %> </th>
-    <th> Tags </th>
-    <th><%= link_to 'Created At', log_book_entries_path(:order => 'log_book_entries.updated_at') %> </th>
-    <th><%= link_to 'Updated At', log_book_entries_path(:order => 'log_book_entries.created_at') %> </th>
 
-
-<% @log_book_entries.each do |log_book_entry| %>
-  <tr>
-    <td><%=h log_book_entry.title %></td>
-    <td><%=h log_book_entry.description %></td>
-    <td><%=h log_book_entry.solution %></td>
-    <td><%=h log_book_entry.user.name %></td>
-    <td><%= link_to log_book_entry.sha_of_problem,  "http://github.com/desiringgod/" + log_book_entry.github_project.title + "/commit/" + log_book_entry.sha_of_problem %></td>
-    <td><%= link_to log_book_entry.sha_of_solution,  "http://github.com/desiringgod/" + log_book_entry.github_project.title + "/commit/" + log_book_entry.sha_of_solution %></td>
-    <td><%= link_to log_book_entry.github_project.title, "http://github.com/desiringgod/" + log_book_entry.github_project.title %></td>
-    <td><% log_book_entry.tag_list.sort!.each do |tag| %>
-        <%= link_to tag, :action => "label", :controller => "search", :tag=>tag %>
-        <% end %>
-    </td>
-    <td>
-      <% if log_book_entry.created_at > 7.days.ago %>
-      <%=h log_book_entry.created_at.strftime("%A, %H:%M ") %>
-      <% else %>
-      <%=h log_book_entry.created_at.to_s(:long) %> 
-      <% end %>
-    </td>
-    <td>
-      <% if log_book_entry.updated_at > 7.days.ago %>
-      <%=h log_book_entry.updated_at.strftime("%A, %H:%M ") %> 
-      <% else %>
-      <%=h log_book_entry.updated_at.to_s(:long) %> 
-      <% end %>
-    </td>
-    <td><%= link_to 'Show', log_book_entry %></td>
-    <td><%= link_to 'Edit', edit_log_book_entry_path(log_book_entry) %></td>
-    <td><%= link_to 'Destroy', log_book_entry, :confirm => 'Are you sure?', :method => :delete %></td>
-  </tr>
-<% end %>
+  <%= render :partial => "search/table", :locals => {:action => 'index', :tag=> nil, :table_entries => @log_book_entries } %>
 </table>
 
 <br />

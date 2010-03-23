@@ -1,0 +1,31 @@
+  <tr>
+    <td><%=h table_entry.title %></td>
+    <td><%=h table_entry.description %></td>
+    <td><%=h table_entry.solution %></td>
+    <td><%=h table_entry.user.name %></td>
+    <td><%= link_to table_entry.sha_of_problem,  "http://github.com/desiringgod/" + table_entry.github_project.title + "/commit/" + table_entry.sha_of_problem %></td>
+    <td><%= link_to table_entry.sha_of_solution,  "http://github.com/desiringgod/" + table_entry.github_project.title + "/commit/" + table_entry.sha_of_solution %></td>
+    <td><%= link_to table_entry.github_project.title, "http://github.com/desiringgod/" + table_entry.github_project.title %></td>
+    <td><% table_entry.tag_list.sort!.each do |tag| %>
+        <%= link_to tag, :action => "label", :controller => "search", :tag=>tag %>
+        <% end %>
+    </td>
+    <td>
+      <% if table_entry.created_at > 7.days.ago %>
+      <%=h table_entry.created_at.strftime("%A, %H:%M ") %>
+      <% else %>
+      <%=h table_entry.created_at.to_s(:long) %> 
+      <% end %>
+    </td>
+    <td>
+      <% if table_entry.updated_at > 7.days.ago %>
+      <%=h table_entry.updated_at.strftime("%A, %H:%M ") %> 
+      <% else %>
+      <%=h table_entry.updated_at.to_s(:long) %> 
+      <% end %>
+    </td>
+    <td><%= link_to 'Show', table_entry %></td>
+    <td><%= link_to 'Edit', edit_log_book_entry_path(table_entry) %></td>
+    <td><%= link_to 'Destroy', table_entry, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+
