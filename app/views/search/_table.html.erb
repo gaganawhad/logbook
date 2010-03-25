@@ -1,4 +1,5 @@
-  <tr>
+<table>
+<tr>
     <th><%= link_to 'Title', :action => action, :tag => tag, :order => 'log_book_entries.title' %> </th>
     <th><%= link_to 'Description',  :action => action, :tag => tag, :order => 'description' %> </th>
     <th><%= link_to 'Solution',  :action => action,  :tag => tag, :order => 'solution' %> </th>
@@ -12,4 +13,4 @@
   </tr>
 
 <%= render :partial => "search/table_entry", :collection => table_entries %> 
-
+</table>

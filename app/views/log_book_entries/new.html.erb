@@ -17,7 +17,7 @@
   </p>
   <p>
     <%= f.label :user_id %><br />
-    <%= f.select(:user_id, @users, { :include_blank => true}) %>
+    <%= f.select(:user_id, User.options_for_users, { :include_blank => true}) %>
   </p>
   <p>
     <%= f.label :sha_of_problem %><br />
@@ -29,7 +29,7 @@
   </p>
   <p>
     <%= f.label :github_project_id %><br />
-    <%= f.select(:github_project_id, @projects,  { :include_blank => true}) %>
+    <%= f.select(:github_project_id, GithubProject.options_for_projects,  { :include_blank => true}) %>
   </p>
   <p>
     <%= f.label :tag_list %>
@@ -45,7 +45,7 @@
   </p>
   <p>
     <%= f.submit 'Create' %>
-  </p>+=
+  </p>
 <% end %>
 
 <%= link_to 'Back', log_book_entries_path %>

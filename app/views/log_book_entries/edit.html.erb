@@ -17,7 +17,7 @@
   </p>
   <p>
     <%= f.label :user_id %><br />
-    <%= f.select(:user_id, @users)%>
+    <%= f.select(:user_id, User.options_for_users)%>
   </p>
   <p>
     <%= f.label :sha_of_problem %><br />
@@ -29,7 +29,7 @@
   </p>
   <p>
     <%= f.label :github_project_id %><br />
-    <%= f.select(:github_project_id, @projects)%>
+    <%= f.select(:github_project_id, GithubProject.options_for_projects)%>
   </p>
   <p>
     <%= f.label :tag_list %>

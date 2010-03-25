@@ -20,17 +20,17 @@
 
 <p>
   <b>Sha of problem:</b>
-  <%= link_to @log_book_entry.sha_of_problem,  "http://github.com/desiringgod/" + @log_book_entry.github_project.title + "/commit/" + @log_book_entry.sha_of_problem %>
+  <%=h link_to @log_book_entry.sha_of_problem, print_github_commit_link(@log_book_entry.github_project.title, @log_book_entry.sha_of_problem) %>
 </p>
 
 <p>
-  <b>Sha of solution:</b>
-  <%= link_to @log_book_entry.sha_of_solution, "http://github.com/desiringgod/" + @log_book_entry.github_project.title + "/commit/" + @log_book_entry.sha_of_solution %>
+<b>Sha of solution:</b>
+  <%=h link_to @log_book_entry.sha_of_solution, print_github_commit_link(@log_book_entry.github_project.title, @log_book_entry.sha_of_solution) %>
 </p>
 
 <p>
   <b>Github project:</b>
-  <%= link_to @log_book_entry.github_project.title, "http://github.com/desiringgod/" + @log_book_entry.github_project.title %>
+  <%=h link_to @log_book_entry.github_project.title, print_github_project_link(@log_book_entry.github_project.title) %>
 </p>
 
 <p>
@@ -42,20 +42,12 @@
 
 <p>
   <b>Created at:</b>
-      <% if @log_book_entry.created_at > 7.days.ago %>
-      <%=h @log_book_entry.created_at.strftime("%A, %H:%M ") %>
-      <% else %>
-      <%=h @log_book_entry.created_at.to_s(:long) %> 
-      <% end %>
+  <%= smart_date_printer @log_book_entry.created_at %>
 </p>
 
 <p>
   <b>Updated at:</b>
-      <% if @log_book_entry.updated_at > 7.days.ago %>
-      <%=h @log_book_entry.updated_at.strftime("%A, %H:%M ") %> 
-      <% else %>
-      <%=h @log_book_entry.updated_at.to_s(:long) %> 
-      <% end %>
+  <%= smart_date_printer @log_book_entry.updated_at %>
 </p>
 
 
