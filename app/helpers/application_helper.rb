@@ -1,5 +1,12 @@
 # Methods added to this helper will be available to all templates in the application.
 module ApplicationHelper
+  def smart_sha_printer(my_sha)
+    if my_sha != "" 
+       my_sha = my_sha[0..5] + "..."
+    end
+    my_sha
+  end
+  
   def smart_date_printer(my_date)
     if my_date > 7.days.ago 
       my_date.strftime("%A, %H:%M ")

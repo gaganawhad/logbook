@@ -11,6 +11,7 @@
     <th> Tags </th>
     <th><%= link_to 'Created At', :action => action, :tag => tag, :order => 'log_book_entries.updated_at', :direction => get_direction('log_book_entries.updated_at', prev_order, direction) %> </th>
     <th><%= link_to 'Updated At', :action => action, :tag => tag, :order => 'log_book_entries.created_at', :direction => get_direction('log_book_entries.created_at', prev_order, direction) %> </th>
+    <th> Operations </th>
   </tr>
 
 <%= render :partial => "search/table_entry", :collection => table_entries %> 
