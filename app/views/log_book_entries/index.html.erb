@@ -4,6 +4,9 @@
 
 <h1>Listing log_book_entries </h1>
 
+<%= link_to 'New Entry', new_log_book_entry_path %>
+<%= will_paginate @log_book_entries %>
+
 <%= render :partial => "search/table", :locals => {:action => 'index', :tag=> nil, :table_entries => @log_book_entries, :prev_order => @prev_order, :direction => @direction } %>
 
 <br />

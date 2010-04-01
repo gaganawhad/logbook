@@ -9,6 +9,10 @@
 
 <%= render :partial => "search_box" %> 
 
+
+<%= link_to 'All Entries', log_book_entries_path %>
+<%= will_paginate @matched_entries %>
+
 <%= render :partial => "table", :locals => {:action => 'query', :tag => nil, :table_entries => @matched_entries, :prev_order => @prev_order, :direction => @direction } %>
 
 <%= will_paginate @matched_entries %>
