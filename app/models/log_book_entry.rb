@@ -5,9 +5,9 @@ class LogBookEntry < ActiveRecord::Base
   validates_presence_of :title, :description, :solution, :user_id, :github_project_id
   validates_uniqueness_of :title
 
-  def self.find_by_query(my_query)
+  def self.find_by_query(my_query, my_order)
     matched_entries = Array.new   
-    log_book_entries = LogBookEntry.find(:all, :joins => [:user, :github_project]) 
+    log_book_entries = LogBookEntry.find(:all, :joins => [:user, :github_project], :order => my_order) 
     log_book_entries.each do |entry|
       testString = String.new
       testString += entry.user.name
@@ -17,12 +17,12 @@ class LogBookEntry < ActiveRecord::Base
         testString += entry.send(op)
       end
       
-
       if testString[my_query]
         matched_entries << entry #will this matched entries arry be clean to begin with?
       end
+
     end
-     matched_entries
+    matched_entries
   end
 
 

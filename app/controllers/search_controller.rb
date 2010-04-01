@@ -1,21 +1,59 @@
 class SearchController < ApplicationController
+
   def index
   end
+
   def label
     #TODO: LogBookEntry.scoped(:order => :title, :joins => [:user, :github_project]).find_tagged_with('tag3')
-    matched_ids = LogBookEntry.find_tagged_with(params[:tag]).collect {|e| e.id} 
-    @matched_entries = LogBookEntry.find(matched_ids, :joins => [:user, :github_project], :order => params[:order]) 
+    #matched_ids = LogBookEntry.find_tagged_with(params[:tag]).collect {|e| e.id} 
+      #@matched_entries = LogBookEntry.find(matched_ids, :joins => [:user, :github_project], :order => params[:order]) 
+
+    if params[:direction] != nil && params[:order] != nil
+      order = params[:order] + params[:direction]; 
+    end
+    
     if params[:tag]
       @tag = params[:tag]
     end
+
+    if params[:order]
+      @prev_order = params[:order]
+    end
+
+    if params[:direction]
+      @direction = params[:direction]
+    end
+    
+    @matched_entries = LogBookEntry.scoped(:order => order , :joins => [:user, :github_project]).find_tagged_with(params[:tag]); #using scoped to run the find_tagged_by rather than having an array being returned.  
+  
   end
   
   def query
     #TODO: implement LogBookEntry.find_by_query(params[:query]) in the model
+    
+    if params[:direction] != nil && params[:order] != nil
+      order = params[:order] + params[:direction]; 
+    end
+    
+    if params[:tag]
+      @tag = params[:tag]
+    end
+
+    if params[:order]
+      @prev_order = params[:order]
+    end
+
+    if params[:direction]
+      @direction = params[:direction]
+    end
+  
     if params[:query]
       # @matched_entries = LogBookEntry.find_by_query(params[:query])
+     
+    
       @query = params[:query]
-      @matched_entries = LogBookEntry.find_by_query(params[:query])   
+
+      @matched_entries = LogBookEntry.find_by_query(params[:query], order)   
 #      @log_book_entries = LogBookEntry.find(:all, :joins => [:user, :github_project]) 
 #      
 #      
@@ -35,6 +73,10 @@ class SearchController < ApplicationController
 #      end
     end
 
+
+  end
+
+  def initialize 
 
   end
 

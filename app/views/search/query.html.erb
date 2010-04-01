@@ -1,4 +1,4 @@
-<h1> Search Resuts 
+<h1> Search Results 
 <% if @query %> 
    for  '<%= @query  %>' </h1>
 <% else %>
@@ -9,9 +9,7 @@
 
 <%= render :partial => "search_box" %> 
 
-<table>
-  <%= render :partial => "table", :locals => {:action => 'search', :tag => nil, :table_entries => @matched_entries } %>
-</table>
+<%= render :partial => "table", :locals => {:action => 'query', :tag => nil, :table_entries => @matched_entries, :prev_order => @prev_order, :direction => @direction } %>
 
 <%= link_to 'All Entries', log_book_entries_path %>
 

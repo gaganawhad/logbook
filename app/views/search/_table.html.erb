@@ -1,15 +1,16 @@
 <table>
-<tr>
-    <th><%= link_to 'Title', :action => action, :tag => tag, :order => 'log_book_entries.title' %> </th>
-    <th><%= link_to 'Description',  :action => action, :tag => tag, :order => 'description' %> </th>
-    <th><%= link_to 'Solution',  :action => action,  :tag => tag, :order => 'solution' %> </th>
-    <th><%= link_to 'User name',   :action => action, :tag => tag, :order => 'users.name' %> </th>
+  
+  <tr>
+    <th><%= link_to 'Title', :action => action, :tag => tag, :order => 'log_book_entries.title', :direction => get_direction('log_book_entries.title', prev_order, direction)  %> </th>
+    <th><%= link_to 'Description', :action => action, :tag => tag, :order => 'description', :direction => get_direction('description', prev_order, direction)  %> </th>
+    <th><%= link_to 'Solution', :action => action,  :tag => tag, :order => 'solution', :direction => get_direction('solution', prev_order, direction) %> </th>
+    <th><%= link_to 'User name', :action => action, :tag => tag, :order => 'users.name', :direction => get_direction('users.name', prev_order, direction) %> </th>
     <th> SHA of Problem </th>
     <th> SHA of Solution </th>
-    <th><%= link_to 'Github Project',  :action => action, :tag => tag, :order => 'github_projects.title' %> </th>
+    <th><%= link_to 'Github Project', :action => action, :tag => tag, :order => 'github_projects.title', :direction => get_direction('github_projects.title', prev_order, direction) %> </th>
     <th> Tags </th>
-    <th><%= link_to 'Created At', :action => action, :tag => tag, :order => 'log_book_entries.updated_at' %> </th>
-    <th><%= link_to 'Updated At', :action => action, :tag => tag, :order => 'log_book_entries.created_at' %> </th>
+    <th><%= link_to 'Created At', :action => action, :tag => tag, :order => 'log_book_entries.updated_at', :direction => get_direction('log_book_entries.updated_at', prev_order, direction) %> </th>
+    <th><%= link_to 'Updated At', :action => action, :tag => tag, :order => 'log_book_entries.created_at', :direction => get_direction('log_book_entries.created_at', prev_order, direction) %> </th>
   </tr>
 
 <%= render :partial => "search/table_entry", :collection => table_entries %> 

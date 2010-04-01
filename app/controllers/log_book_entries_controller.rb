@@ -3,7 +3,24 @@ class LogBookEntriesController < ApplicationController
   # get /log_book_entries.xml
   def index
     #TODO: Let me reverse the sort order
-      @log_book_entries = LogBookEntry.find(:all, :joins => [:user, :github_project], :order => params[:order]) 
+    if params[:direction] != nil && params[:order] != nil
+      order = params[:order] + params[:direction]; 
+    end
+    
+    if params[:tag]
+      @tag = params[:tag]
+    end
+
+    if params[:order]
+      @prev_order = params[:order]
+    end
+
+    if params[:direction]
+      @direction = params[:direction]
+    end
+
+
+    @log_book_entries = LogBookEntry.find(:all, :joins => [:user, :github_project], :order => order) 
 
     
     respond_to do |format|

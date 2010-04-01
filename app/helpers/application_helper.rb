@@ -15,6 +15,21 @@ module ApplicationHelper
   def print_github_commit_link(this_project_title, my_sha)
       print_github_project_link this_project_title + "/commit/" + my_sha
   end
+  
+  def get_direction(curr_order, prev_order, dir)
+    if !dir
+     " ASC"
+    end
 
+    if (prev_order && prev_order == curr_order)
+      if dir == ' DESC'
+        ' ASC'
+      else
+       return ' DESC'
+      end
+    else
+      return ' ASC'
+    end
+  end
 
 end

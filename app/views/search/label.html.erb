@@ -2,10 +2,7 @@
   <h1>Entries Matching <%= @tag %></h1>
 <% end %>
 
-<table>
-  <%= render :partial => "table", :locals => {:action => 'label', :tag => @tag, :table_entries => @matched_entries } %>
-</table>
+<%= render :partial => "table", :locals => {:action => 'label', :tag => @tag, :table_entries => @matched_entries, :prev_order => @prev_order, :direction => @direction } %>
 
 <%= link_to 'All Entries', log_book_entries_path %>
-
 <br /> 
