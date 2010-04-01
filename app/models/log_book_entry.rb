@@ -4,6 +4,9 @@ class LogBookEntry < ActiveRecord::Base
   belongs_to :user
   validates_presence_of :title, :description, :solution, :user_id, :github_project_id
   validates_uniqueness_of :title
+  cattr_reader :per_page
+  @@per_page = 10
+
 
   def self.find_by_query(my_query, my_order)
     matched_entries = Array.new   

@@ -20,7 +20,7 @@ class LogBookEntriesController < ApplicationController
     end
 
 
-    @log_book_entries = LogBookEntry.find(:all, :joins => [:user, :github_project], :order => order) 
+    @log_book_entries = LogBookEntry.find(:all, :joins => [:user, :github_project], :order => order).paginate :page => params[:page] 
 
     
     respond_to do |format|

@@ -7,5 +7,5 @@
 <%= render :partial => "search/table", :locals => {:action => 'index', :tag=> nil, :table_entries => @log_book_entries, :prev_order => @prev_order, :direction => @direction } %>
 
 <br />
-
+<%= will_paginate @log_book_entries %>
 <%= link_to 'New Entry', new_log_book_entry_path %>

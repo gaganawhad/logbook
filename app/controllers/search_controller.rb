@@ -24,7 +24,7 @@ class SearchController < ApplicationController
       @direction = params[:direction]
     end
     
-    @matched_entries = LogBookEntry.scoped(:order => order , :joins => [:user, :github_project]).find_tagged_with(params[:tag]); #using scoped to run the find_tagged_by rather than having an array being returned.  
+    @matched_entries = LogBookEntry.scoped(:order => order , :joins => [:user, :github_project]).find_tagged_with(params[:tag]).paginate :page => params[:page] #using scoped to run the find_tagged_by rather than having an array being returned.  
   
   end
   
@@ -53,7 +53,7 @@ class SearchController < ApplicationController
     
       @query = params[:query]
 
-      @matched_entries = LogBookEntry.find_by_query(params[:query], order)   
+      @matched_entries = LogBookEntry.find_by_query(params[:query], order).paginate :page[:page]
 #      @log_book_entries = LogBookEntry.find(:all, :joins => [:user, :github_project]) 
 #      
 #      
