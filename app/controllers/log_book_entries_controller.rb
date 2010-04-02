@@ -2,24 +2,8 @@ class LogBookEntriesController < ApplicationController
   # get /log_book_entries
   # get /log_book_entries.xml
   def index
-    if params[:direction] != nil && params[:order] != nil
-      order = params[:order] + params[:direction]; 
-    end
-    
-    if params[:token]
-      @token = params[:token]
-    end
-
-    if params[:order]
-      @prev_order = params[:order]
-    end
-
-    if params[:direction]
-      @direction = params[:direction]
-    end
-
-
-    @log_book_entries = LogBookEntry.find(:all, :joins => [:user, :github_project], :order => order).paginate :page => params[:page] 
+    initialize
+    @log_book_entries = LogBookEntry.find(:all, :joins => [:user, :github_project], :order => @order).paginate :page => params[:page] 
 
     
     respond_to do |format|

@@ -7,4 +7,14 @@ class ApplicationController < ActionController::Base
 
   # Scrub sensitive parameters from your log
   # filter_parameter_logging :password
+  def initialize
+      @order = params[:order] + params[:direction] 
+    
+      @token = params[:token]
+
+      @prev_order = params[:order]
+
+      @direction = params[:direction]
+  end
+
 end
