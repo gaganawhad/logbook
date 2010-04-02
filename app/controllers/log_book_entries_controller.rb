@@ -2,7 +2,6 @@ class LogBookEntriesController < ApplicationController
   # get /log_book_entries
   # get /log_book_entries.xml
   def index
-    #TODO: Let me reverse the sort order
     if params[:direction] != nil && params[:order] != nil
       order = params[:order] + params[:direction]; 
     end

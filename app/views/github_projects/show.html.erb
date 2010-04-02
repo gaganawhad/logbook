@@ -1,6 +1,6 @@
 <p>
   <b>Title:</b>
-  <%=h @github_project.title %>
+  <%= link_to @github_project.title, print_github_project_link(@github_project.title) %></td>
 </p>
 
 <p>

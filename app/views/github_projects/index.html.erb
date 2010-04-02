@@ -8,7 +8,7 @@
 
 <% @github_projects.each do |github_project| %>
   <tr>
-    <td><%=h github_project.title %></td>
+    <td><%= link_to github_project.title, print_github_project_link(github_project.title) %></td>
     <td><%=h github_project.github_name %></td>
     <td><%= link_to 'Show', github_project %></td>
     <td><%= link_to 'Edit', edit_github_project_path(github_project) %></td>

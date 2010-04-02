@@ -32,10 +32,10 @@ module ApplicationHelper
       if dir == ' DESC'
         ' ASC'
       else
-       return ' DESC'
+        ' DESC'
       end
     else
-      return ' ASC'
+      ' ASC'
     end
   end
 
