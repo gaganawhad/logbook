@@ -10,7 +10,8 @@ class LogBookEntry < ActiveRecord::Base
 
   def self.find_by_query(my_query, my_order)
     matched_entries = Array.new   
-    log_book_entries = LogBookEntry.find(:all, :joins => [:user, :github_project], :order => my_order) 
+   log_book_entries = LogBookEntry.find(:all, :joins => [:user, :github_project], :order => my_order) 
+  #log_book_entries = LogBookEntry.scoped( :joins => [:user, :github_project], :order => my_order)
     log_book_entries.each do |entry|
       testString = String.new
       testString += entry.user.name

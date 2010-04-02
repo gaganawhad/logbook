@@ -19,24 +19,24 @@
 </p>
 
 <p>
-  <b>Sha of problem:</b>
-  <%=h link_to @log_book_entry.sha_of_problem, print_github_commit_link(@log_book_entry.github_project.title, @log_book_entry.sha_of_problem) %>
+  <b>SHA of problem:</b>
+  <%= link_to @log_book_entry.sha_of_problem, print_github_commit_link(@log_book_entry.github_project.title, @log_book_entry.sha_of_problem) %>
 </p>
 
 <p>
-<b>Sha of solution:</b>
-  <%=h link_to @log_book_entry.sha_of_solution, print_github_commit_link(@log_book_entry.github_project.title, @log_book_entry.sha_of_solution) %>
+  <b>SHA of solution:</b>
+  <%= link_to @log_book_entry.sha_of_solution, print_github_commit_link(@log_book_entry.github_project.title, @log_book_entry.sha_of_solution) %>
 </p>
 
 <p>
   <b>Github project:</b>
-  <%=h link_to @log_book_entry.github_project.title, print_github_project_link(@log_book_entry.github_project.title) %>
+  <%= link_to @log_book_entry.github_project.title, print_github_project_link(@log_book_entry.github_project.title) %>
 </p>
 
 <p>
   <b>Tags</b>
-  <% @log_book_entry.tag_list.sort!.each do |tag| %>
-  <%= link_to tag, :action => "label", :controller => "search", :tag=>tag%>
+  <% @log_book_entry.tag_list.sort!.each do |token| %>
+  <%= link_to token, :action => "label", :controller => "search", :token=>token%>
   <% end %>
 </p>
 

@@ -12,8 +12,8 @@ class SearchController < ApplicationController
       order = params[:order] + params[:direction]; 
     end
     
-    if params[:tag]
-      @tag = params[:tag]
+    if params[:token]
+      @token = params[:token]
     end
 
     if params[:order]
@@ -24,19 +24,19 @@ class SearchController < ApplicationController
       @direction = params[:direction]
     end
     
-    @matched_entries = LogBookEntry.scoped(:order => order , :joins => [:user, :github_project]).find_tagged_with(params[:tag]).paginate :page => params[:page] #using scoped to run the find_tagged_by rather than having an array being returned.  
-  
+    @matched_entries = LogBookEntry.scoped(:order => order , :joins => [:user, :github_project]).find_tagged_with(params[:token])#.paginate :page => params[:page] #using scoped to run the find_tagged_by rather than having an array being returned.  
+    @matched_entries = @matched_entries.paginate :page => params[:page]  
   end
   
   def query
     #TODO: implement LogBookEntry.find_by_query(params[:query]) in the model
     
     if params[:direction] != nil && params[:order] != nil
-      order = params[:order] + params[:direction]; 
+      order = params[:order] + params[:direction] 
     end
     
-    if params[:tag]
-      @tag = params[:tag]
+    if params[:token]
+      @token = params[:token]
     end
 
     if params[:order]
@@ -47,14 +47,20 @@ class SearchController < ApplicationController
       @direction = params[:direction]
     end
   
-    if params[:query]
+    if params[:page]
+      page = params[:page]
+    end
+
+    #if params[:query]
       # @matched_entries = LogBookEntry.find_by_query(params[:query])
      
     
-      @query = params[:query]
+      @token = params[:token]
 
-      @matched_entries = LogBookEntry.find_by_query(params[:query], order).paginate :page[:page]
-#      @log_book_entries = LogBookEntry.find(:all, :joins => [:user, :github_project]) 
+      @matched_entries = LogBookEntry.find_by_query(params[:token], order )#TODO replace the last parameter by one that gives a random order
+#     @matched_entries = LogBookEntry.find_by_query(params[:query], 'log_book_entries.created_at' )#TODO replace the last parameter by one that gives a random order
+      @matched_entries = @matched_entries.paginate :page => params[:page]
+      #     @log_book_entries = LogBookEntry.find(:all, :joins => [:user, :github_project]) 
 #      
 #      
 #      @log_book_entries.each do |entry|
@@ -71,7 +77,7 @@ class SearchController < ApplicationController
 #          @matched_entries << entry #will this matched entries arry be clean to begin with?
 #        end
 #      end
-    end
+    #end
 
 
   end

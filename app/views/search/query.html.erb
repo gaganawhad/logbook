@@ -1,21 +1,18 @@
 <h1> Search Results 
-<% if @query %> 
-   for  '<%= @query  %>' </h1>
+<% if @token %> 
+   for  '<%= @token  %>' </h1>
 <% else %>
   </h1>
   <br />
   No string entered
-<% end%>
-
-<%= render :partial => "search_box" %> 
-
+<% end %>
 
 <%= link_to 'All Entries', log_book_entries_path %>
 <%= will_paginate @matched_entries %>
 
-<%= render :partial => "table", :locals => {:action => 'query', :tag => nil, :table_entries => @matched_entries, :prev_order => @prev_order, :direction => @direction } %>
+<%= render :partial => "table", :locals => {:action => 'query', :token => @token, :table_entries => @matched_entries, :prev_order => @prev_order, :direction => @direction } %>
 
 <%= will_paginate @matched_entries %>
 <%= link_to 'All Entries', log_book_entries_path %>
 
-<br /> 
+<br />

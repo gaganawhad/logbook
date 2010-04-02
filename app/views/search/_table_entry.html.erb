@@ -6,8 +6,8 @@
     <td align="left" valign="top"><%= link_to smart_sha_printer(table_entry.sha_of_problem), print_github_commit_link(table_entry.github_project.title,  table_entry.sha_of_problem) %></td>
     <td align="left" valign="top"><%= link_to smart_sha_printer(table_entry.sha_of_solution), print_github_commit_link(table_entry.github_project.title, table_entry.sha_of_solution) %></td>
     <td align="left" valign="top"><%= link_to table_entry.github_project.title, print_github_project_link(table_entry.github_project.title) %></td>
-    <td align="left" valign="top"><% table_entry.tag_list.sort!.each do |tag| %>
-        <%= link_to tag, :action => "label", :controller => "search", :tag=>tag %>
+    <td align="left" valign="top"><% table_entry.tag_list.sort!.each do |token| %>
+        <%= link_to token, :action => "label", :controller => "search", :token=>token %>
         <% end %>
     </td>
     <td align="left" valign="top"><%=h smart_date_printer table_entry.created_at %></td>

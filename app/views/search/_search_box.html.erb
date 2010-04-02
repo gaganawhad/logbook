@@ -1,5 +1,5 @@
-<% form_tag '/search/query' do %>
-    <%= text_field_tag 'query' %>
+<% form_tag '/search/query', :method => 'get' do %>
+    <%= text_field_tag 'token' %>
       <%= submit_tag 'Search' %>
     <% end %>
 

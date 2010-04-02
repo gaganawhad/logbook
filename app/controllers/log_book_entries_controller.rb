@@ -7,8 +7,8 @@ class LogBookEntriesController < ApplicationController
       order = params[:order] + params[:direction]; 
     end
     
-    if params[:tag]
-      @tag = params[:tag]
+    if params[:token]
+      @token = params[:token]
     end
 
     if params[:order]
