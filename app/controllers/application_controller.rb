@@ -9,7 +9,7 @@ class ApplicationController < ActionController::Base
   # filter_parameter_logging :password
   def initialize
     if params # params should not be nil for it to work. else it will give errors
-      @order = params[:order]# + params[:direction] 
+      @order = params[:order] + params[:direction] 
       @token = params[:token]
       @prev_order = params[:order]
       @direction = params[:direction]
