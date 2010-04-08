@@ -5,13 +5,16 @@ class SearchController < ApplicationController
 
   def label
     initialize
-    @matched_entries = LogBookEntry.scoped(:order => @order , :joins => [:user, :github_project]).find_tagged_with(params[:token]).paginate :page => params[:page] #using scoped to run the find_tagged_by rather than having an array being returned.  
-  
+    @matched_entries = LogBookEntry.scoped(:order => @order , :joins => [:user, :github_project]).find_tagged_with(params[:token]) #using scoped to run the find_tagged_by rather than having an array being returned.  
+    @size = @matched_entries.size
+    @matched_entries = @matched_entries.paginate :page => params[:page]
   end
   
   def query
     initialize 
-    @matched_entries = LogBookEntry.find_by_query(params[:token], @order ).paginate :page => params[:page]#TODO replace the last parameter by one that gives a random order
+    @matched_entries = LogBookEntry.find_by_query(params[:token], @order )
+    @size = @matched_entries.size
+    @matched_entries = @matched_entries.paginate :page => params[:page]
   end
 
 end

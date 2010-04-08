@@ -2,6 +2,10 @@
   <h1>Entries Tagged <%= @token %></h1>
 <% end %>
 
+<%="Found #{@size} entries" %>
+<br /> 
+<br /> 
+
 
 <%= link_to 'All Entries', log_book_entries_path %>
 <%= will_paginate @matched_entries %>

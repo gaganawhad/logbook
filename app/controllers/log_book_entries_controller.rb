@@ -1,7 +1,9 @@
 class LogBookEntriesController < ApplicationController
   def index
     initialize
-    @log_book_entries = LogBookEntry.find(:all, :joins => [:user, :github_project], :order => @order).paginate :page => params[:page] 
+    @log_book_entries = LogBookEntry.find(:all, :joins => [:user, :github_project], :order => @order)
+    @size = @log_book_entries.size
+    @log_book_entries = @log_book_entries.paginate :page => params[:page] 
   end
 
   def show
