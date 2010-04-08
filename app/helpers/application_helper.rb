@@ -1,11 +1,22 @@
 # Methods added to this helper will be available to all templates in the application.
 module ApplicationHelper
+  def smart_solution_printer(my_description, my_solution)
+    if my_solution.size > my_description.size
+      my_solution[0..my_description.size] + " ..."
+    else
+      my_solution
+    end
+  end
+  
+  
   def smart_sha_printer(my_sha)
     if my_sha != "" 
        my_sha = my_sha[0..5] + "..."
     end
     my_sha
   end
+  
+  
   
   def smart_date_printer(my_date)
     if my_date > 7.days.ago 
@@ -15,6 +26,8 @@ module ApplicationHelper
     end
   end
   
+  
+  
   def print_github_project_link(my_project_title)
     "http://github.com/desiringgod/" + my_project_title
   end
@@ -22,6 +35,8 @@ module ApplicationHelper
   def print_github_commit_link(this_project_title, my_sha)
       print_github_project_link this_project_title + "/commit/" + my_sha
   end
+  
+  
   
   def get_direction(curr_order, prev_order, dir)
     if !dir
@@ -38,5 +53,7 @@ module ApplicationHelper
       ' ASC'
     end
   end
+
+
 
 end

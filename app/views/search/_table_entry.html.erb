@@ -1,7 +1,7 @@
   <tr>
     <td align="left" valign="top"><%=h table_entry.title %></td>
     <td align="left" valign="top"><%=h table_entry.description %></td>
-    <td align="left" valign="top" ><%=h table_entry.solution %></td>
+    <td align="left" valign="top" ><%=h smart_solution_printer(table_entry.description, table_entry.solution) %></td>
     <td align="center" valign="top"><%=h table_entry.user.name %></td>
     <td align="center" valign="top"><%= link_to smart_sha_printer(table_entry.sha_of_problem), print_github_commit_link(table_entry.github_project.title,  table_entry.sha_of_problem) %></td>
     <td align="center" valign="top"><%= link_to smart_sha_printer(table_entry.sha_of_solution), print_github_commit_link(table_entry.github_project.title, table_entry.sha_of_solution) %></td>
