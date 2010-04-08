@@ -40,4 +40,5 @@ Rails::Initializer.run do |config|
   # config.i18n.default_locale = :de
 end
 
+#The following is added as a requrement to be able to use the pagination gem that has been installed 
 require "will_paginate"

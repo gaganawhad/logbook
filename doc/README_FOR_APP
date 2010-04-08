@@ -1,2 +1,36 @@
-Use this README file to introduce your application and point to useful places in the API for learning more.
-Run "rake doc:app" to generate API documentation for your models, controllers, helpers, and libraries.
+== 8th April, 2010
+
+The app uses acts_as_taggable_on_steroids http://github.com/jviney/acts_as_taggable_on_steroids plugin to allow and manage tags added to the posts
+The app also uses will_paginate gem http://wiki.github.com/mislav/will_paginate/ that has been installed to paginate the table entries. 
+The seeds file uses faker gem http://faker.rubyforge.org/ that has been installed to generate fake data inorder to populate the database. 
+
+Links to github are generated inside the application_helper. 
+
+== Models
+The Models were generated using scaffolding. In LogBookEntries github_project_id and user_id are foreign keys. So LobBookEntries is the referencing table and Users and GithubProjects are referenced tables. 
+Therefore we use User has_many log_book_entries and GithubProject has_many log_book_entries and LogBookEntry belongs_to User and belongs_to GithubProject
+
+Tables to store tags are added by the acts_as_taggable_on_steroids . These tables were automatically created. 
+
+In the LogBookEntry model the we are using a find_by_query method that helps search the table using a query entered by the user. 
+
+Indices have been created on github_id and user_id columns of log_book_entries table in order to speed-en up query retrieval. 
+
+
+== Helpers
+Most helpers are view helpers. They are used to print the particular item in a much more readable or pleasing manner. They are quite straightforward. The get_direction helper contains logic to get the right direction ( ascending or descending) for the entries that are displayed in the table. 
+
+
+== Controllers
+Active controllers initializes a bunch of instance variables that are used to pass to views and then back based on what order we want the table entries to be displayed. 
+These variables are used in the search_controller and the log_book_entries_controller. 
+
+The search controller has been created to show some of the entries that have been searched for by using either tags or a search query.  
+
+
+== Views
+The search box created in _search_box.html.erb is used in the search layout in order to have a search box on every page that in that controller. It has also been added to the Index page of the log_book_entries controller. the search box uses get method. If it would not, re-ordering of entries in the query action would not have worked because the query would not be known. 
+
+The _table.html.erb partial has been created to have it be called from various views so that the same table can be used in various views. 
+
+The _table_entry.html.erb is created to have multiple entries be populated over the table. It is currently being called form _table.html.erb using :collections symbol.P
