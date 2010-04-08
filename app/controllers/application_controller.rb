@@ -10,9 +10,7 @@ class ApplicationController < ActionController::Base
   def initialize
     if params # params should not be nil for it to work. else it will give errors
       @order = params[:order] 
-      if params[:direction]
-        @order = @order + params[:direction] 
-      end
+      @order = @order + params[:direction] if params[:direction] 
       @token = params[:token]
       @prev_order = params[:order]
       @direction = params[:direction]
