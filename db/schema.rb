@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20100408160458) do
+ActiveRecord::Schema.define(:version => 20100408171829) do
 
   create_table "github_projects", :force => true do |t|
     t.string   "title"
@@ -17,8 +17,6 @@ ActiveRecord::Schema.define(:version => 20100408160458) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
-
-  add_index "github_projects", ["id"], :name => "index_github_projects_on_id"
 
   create_table "log_book_entries", :force => true do |t|
     t.string   "title"
@@ -31,6 +29,9 @@ ActiveRecord::Schema.define(:version => 20100408160458) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  add_index "log_book_entries", ["github_project_id"], :name => "index_log_book_entries_on_github_project_id"
+  add_index "log_book_entries", ["user_id"], :name => "index_log_book_entries_on_user_id"
 
   create_table "taggings", :force => true do |t|
     t.integer  "tag_id"
@@ -52,7 +53,5 @@ ActiveRecord::Schema.define(:version => 20100408160458) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
-
-  add_index "users", ["id"], :name => "index_users_on_id"
 
 end
