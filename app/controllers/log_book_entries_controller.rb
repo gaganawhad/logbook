@@ -1,8 +1,12 @@
+
 class LogBookEntriesController < ApplicationController
   def index
-    initialize
-    @log_book_entries = LogBookEntry.find(:all, :joins => [:user, :github_project], :include =>[:user, :github_project ], :order => @extended_order)
-    @size = @log_book_entries.size
+    initialize #Initializes the parameters
+
+    #The Include parameter in the following find method reduces the number of sql queries that run on the databse. Joins, runs an inner join. 
+    #@log_book_entries = LogBookEntry.find(:all, :joins => [:user, :github_project], :include =>[:user, :github_project ], :order => @extended_order)
+    @log_book_entries = LogBookEntry.find(:all, :include =>[:user, :github_project ], :order => @extended_order)
+    @size = @log_book_entries.size #Used in views to show how many results were found. we cannot paginate before this else we get a wrong number. 
     @log_book_entries = @log_book_entries.paginate :page => params[:page] 
   end
 

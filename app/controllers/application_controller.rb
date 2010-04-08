@@ -7,8 +7,11 @@ class ApplicationController < ActionController::Base
 
   # Scrub sensitive parameters from your log
   # filter_parameter_logging :password
+
+
+  # The following function is used to intitialize parameters that will be used in other actions and views
   def initialize
-    if params # params should not be nil for it to work. else it will give errors
+    if params # To make sure params is not nil
       @extended_order = params[:order] 
       @extended_order = @extended_order + params[:direction] if params[:direction]
       @token = params[:token]
