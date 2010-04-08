@@ -7,11 +7,12 @@
 #   Major.create(:name => 'Daley', :city => cities.first)
 #
 
-  require 'faker'
+  require 'faker' #Used to generate fake data
   
   @user_names = ['Stu', 'Ben', 'Gags', 'Mike', 'Tyler', 'Eric', 'John', 'Jim', 'Sarah', 'Roy']
   @user_emails = ['Stu@desiringgod.org', 'ben@desiringgod.org', 'gags@gmail.com', 'mike@yahoo.com', 'tyler@hopeingod.org', 'eric@google.com', 'johnpareirra@e-conceive.com', 'jim_anderson@hope.com', 'sarah@laywersarecool.com', 'switchblade@gmail.com']
   @github_titles = ['dgweb', 'LogBook', 'dgnet', 'dgresources']
+  #The following are existing valid SHAs and actually link to a commit Page
   @logbook_shas = [
     '979cdac78422fc6d82f979eeaf955dcc43a23895',
     '556f28d3d1370a11094225d7d7e3a823ea925916',
@@ -32,66 +33,72 @@
   @sha_char_array =  ('A' .. 'Z').to_a + ('a' .. 'z').to_a + ('0' .. '9').to_a
   @tags = ['tag1', 'tag2', 'tag3', 'tag4', 'tag5', 'tag6', 'tag7', 'tag8', 'tag9', 'tag10', 'tag11', 'tag12', 'tag13', 'tag14', 'tag15' ]
   
+  #The following function is used to generate a radom date 
   def random_date(params={})
-    years_back = params[:year_range] || 5
-    latest_year  = params[:year_latest] || 0
+    years_back = params[:year_range] || 5 #Either used given range or then 5
+    latest_year  = params[:year_latest] || 0 #Ether the end of the year range is today's year, or the :year_latest entered in the parameters. 
     year = (rand * (years_back)).ceil + (Time.now.year - latest_year - years_back)
-    month = (rand * 12).ceil
-    day = (rand * 31).ceil #this function generates random numbers starting from 1 till 31
+    month = (rand * 12).ceil #Generates random numbers in the range 1 to 12 including the limits
+    day = (rand * 31).ceil #Generates random numbers starting from 1 till 31 including the limits
     hour = rand(24) # rand function generates random numbers between 0 and 23 including the two numbers 
-    minute = rand(60)
+    minute = rand(60) #0 - 59
     second = rand(60)
     Time.local(year, month, day, hour, minute, second)
   end
 
 
-
+  #Generates a random SHA using the valid characters from @sha_cahr_array
   def random_sha_generator
     my_sha = ""
     40.times do my_sha << @sha_char_array[rand(62)] end
     my_sha
   end
 
+  #Returns SHA either valid or random based on the project id. 
   def sha_generator(proj_id)
-    if proj_id == 2 #ie if the project is log book
-      @logbook_shas[rand(15)] #get a valid sha
+    if proj_id == 2 #ie if the project is LogBook
+      @logbook_shas[rand(15)] #get a valid SHA
     else
       random_sha_generator #else generate random sha
     end
   end
 
+  #Creates the 10 Users
   10.times do |i|
     u = User.create(
     :name => @user_names[i],
     :email => @user_emails[i],
-    :created_at =>random_date(:year_range =>1, :year_latest => 5), #creates an illusion that this was created 6 years back. ie before the log_book_entries table was created
-    :updated_at => random_date(:year_range =>1, :year_latest => 5) #not been careful to have updated at later than or equal to created at.
+    :created_at =>random_date(:year_range =>1, :year_latest => 5), #Creates an illusion that this was created 6 years back. ie before the log_book_entries table was created
+    :updated_at => random_date(:year_range =>1, :year_latest => 5) #Not been careful to have updated at later than or equal to created at.
     )
   end
 
+  #Creates the 4 GithubProjects
   4.times do |i|
     p = GithubProject.create(
       :title => @github_titles[i],
-      :github_name => Faker::Lorem.words(1), # for some werid reason faker gives each word as '--- -' followed by a valid faker name. i just deleted the --- - manually. 
-      :created_at => random_date(:year_range =>1, :year_latest => 5), #creates an illusion that this was created 6 years back. ie before the log_book_entries table was created
-      :updated_at => random_date(:year_range =>1, :year_latest => 5) #not been careful to have updated at later than or equal to created at.
+      :github_name => Faker::Lorem.words(1), #For some werid reason faker gives each word as '--- -' followed by a valid faker name. i just deleted the --- - manually. 
+      :created_at => random_date(:year_range =>1, :year_latest => 5), #Creates an illusion that this was created 6 years back. ie before the log_book_entries table was created
+      :updated_at => random_date(:year_range =>1, :year_latest => 5) #Not been careful to have updated at later than or equal to created at.
     )
   end
 
+  #Creats 1000 entries in the LogBookEntries Table
   1000.times do
-    project_id = rand(4) + 1
+    project_id = rand(4) + 1 #Using local variable considering its multiple use in the code below
     l = LogBookEntry.create(
       :title => Faker::Lorem.sentence(20),
       :description => Faker::Lorem.paragraph(10),
       :solution => Faker::Lorem.paragraph(15),
-      :user_id => rand(10) + 1,# same as (rand * 4) ceil, ie range 1 to  4
+      :user_id => rand(10) + 1,# same as (rand * 10) ceil, ie range 1 to  10
       :github_project_id => project_id,
       :sha_of_problem => sha_generator(project_id), #cannot pass :github_project_id to the function 
       :sha_of_solution => sha_generator(project_id),
       :created_at => random_date, #generates random date between today and 5 years ago
       :updated_at => random_date
     )
-  
+
+    #Adds Tags to the current entry
     rand(4).times do #gives the possibility of 0 tags
       l.tag_list.add(@tags[rand(15)])
       l.save
