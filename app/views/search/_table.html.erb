@@ -9,8 +9,8 @@
     <th> SHA of Solution </th>
     <th><%= link_to 'Github Project', :action => action, :token => @token, :order => 'github_projects.title', :direction => get_direction('github_projects.title', prev_order, direction) %> </th>
     <th> Tags </th>
-    <th><%= link_to 'Created At', :action => action, :token => @token, :order => 'log_book_entries.updated_at', :direction => get_direction('log_book_entries.updated_at', prev_order, direction) %> </th>
-    <th><%= link_to 'Updated At', :action => action, :token => @token, :order => 'log_book_entries.created_at', :direction => get_direction('log_book_entries.created_at', prev_order, direction) %> </th>
+    <th><%= link_to 'Created At', :action => action, :token => @token, :order => 'log_book_entries.created_at', :direction => get_direction('log_book_entries.created_at', prev_order, direction) %> </th>
+    <th><%= link_to 'Updated At', :action => action, :token => @token, :order => 'log_book_entries.updated_at', :direction => get_direction('log_book_entries.updated_at', prev_order, direction) %> </th>
     <th> Operations </th>
   </tr>
 
