@@ -1,5 +1,6 @@
 # Methods added to this helper will be available to all templates in the application.
 module ApplicationHelper
+  
   # Following helper stunts the length of the solution in the case that it is longer than the description. 
   def smart_solution_printer(my_description, my_solution)
     if my_solution.size > my_description.size
@@ -32,7 +33,8 @@ module ApplicationHelper
   def print_github_project_link(my_project_title)
     "http://github.com/desiringgod/" + my_project_title
   end
- 
+
+
   #The Following helper is used to generate links to specific commits. It uses the above helper. 
   def print_github_commit_link(this_project_title, my_sha)
       print_github_project_link this_project_title + "/commit/" + my_sha
@@ -41,19 +43,20 @@ module ApplicationHelper
   
   #The following helper has the logic that determies the order in which the entries will be ordered when one of the table headers is clicked
   def get_direction(curr_order, prev_order, dir)
-    if !dir
+    if !dir #If at all direction was nil
      " ASC"
     end
 
-    if (prev_order && prev_order == curr_order)
+    if (prev_order && prev_order == curr_order) #In the case that the user has clicked the column header again, the order toggles. 
       if dir == ' DESC'
         ' ASC'
       else
         ' DESC'
       end
-    else
+    else #In the case that the user now has clicked a different column header. 
       ' ASC'
     end
+
   end
 
 
