@@ -8,9 +8,9 @@ class LogBookEntry < ActiveRecord::Base
   @@per_page = 10
 
 
-  def self.find_by_query(my_query, my_order)
+  def self.find_by_query(params={})
     matched_entries = Array.new   
-    log_book_entries = LogBookEntry.find(:all, :joins => [:user, :github_project], :order => my_order, :include =>[:user, :github_project]) 
+    log_book_entries = LogBookEntry.find(:all, :joins => [:user, :github_project], :order => params[:order], :include =>[:user, :github_project]) 
     log_book_entries.each do |entry|
       testString = String.new
       testString += entry.user.name
@@ -20,7 +20,7 @@ class LogBookEntry < ActiveRecord::Base
         testString += entry.send(op)
       end
       
-      if testString[my_query]
+      if testString[params[:query]]
         matched_entries << entry 
       end
 

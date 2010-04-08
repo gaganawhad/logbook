@@ -12,7 +12,7 @@ class SearchController < ApplicationController
   
   def query
     initialize 
-    @matched_entries = LogBookEntry.find_by_query(params[:token], @order )
+    @matched_entries = LogBookEntry.find_by_query(:query =>params[:token], :order=>@order )
     @size = @matched_entries.size
     @matched_entries = @matched_entries.paginate :page => params[:page]
   end
